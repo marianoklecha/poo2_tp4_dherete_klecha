@@ -17,3 +17,18 @@ test("Pasar paquete de local a centro de facturación", () =>  {
     expect(localInicial.paquetesEnCola.length).toBe(0); 
     expect(centroFacturacion.paquetesEnCola.length).toBe(1); 
 })
+
+test("Pasar paquete de local a centro de facturación", () =>  {
+    localInicial = new Local();
+    localInicial.generarPaquete();
+
+    centroFacturacion = new CentroFacturacion();
+    localInicial.pasarPaqueteA(centroFacturacion);
+
+    centroCalidad = new CentroCalidad();
+    centroFacturacion.pasarPaqueteA(centroCalidad);
+    
+    expect(localInicial.paquetesEnCola.length).toBe(0); 
+    expect(centroFacturacion.paquetesEnCola.length).toBe(0);
+    expect(centroCalidad.paquetesEnCola.length).toBe(1); 
+})
