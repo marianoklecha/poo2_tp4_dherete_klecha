@@ -1,5 +1,6 @@
 const Local = require("../src/Local");
 const CentroFacturacion = require("../src/CentroFacturacion");
+const CentroFacturacion = require("../src/CentroCalidad");
 
 test("Generar paquete en local", () =>  {
     localInicial = new Local();
