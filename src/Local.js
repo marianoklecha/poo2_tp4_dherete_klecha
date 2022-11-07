@@ -1,7 +1,9 @@
 function Local(){
-    this.paquetesEnCola = 0;
+    this.paquetesEnCola = new Array();
     this.generarPaquete = function(){
-        this.paquetesEnCola++;
+
+        this.paquetesEnCola.push(new Paquete());
+        return this.paquetesEnCola.length;
     }
 }
 
