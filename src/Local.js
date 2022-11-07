@@ -1,5 +1,4 @@
 const Paquete = require("./Paquete");
-const CentroFacturacion = require("./CentroFacturacion");
 
 function Local(){
     this.paquetesEnCola = new Array();
