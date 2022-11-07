@@ -1,5 +1,5 @@
 function Local(){
-    this.crearPaquete = function(){
+    this.generarPaquete = function(){
         return 1;
     }
 }
