@@ -50,3 +50,23 @@ test("Pasar paquete de centro de calidad a centro de distribución", () =>  {
     expect(centroCalidad.paquetesEnCola.length).toBe(0);
     expect(centroDistribucion.paquetesEnCola.length).toBe(1); 
 })
+
+test("Pasar paquete de centro de distribución a Destino", () =>  {
+    localInicial = new Local();
+    localInicial.generarPaquete();
+
+    centroFacturacion = new CentroFacturacion();
+    localInicial.pasarPaqueteA(centroFacturacion);
+
+    centroCalidad = new CentroCalidad();
+    centroFacturacion.pasarPaqueteA(centroCalidad);
+
+    centroDistribucion = new CentroDistribucion();
+    centroCalidad.pasarPaqueteA(centroDistribucion);
+
+    destino = new Destino();
+    centroDistribucion.pasarPaqueteA(destino);
+
+    expect(centroDistribucion.paquetesEnCola.length).toBe(0);
+    expect(destino.paquetesEnCola.length).toBe(1); 
+})
