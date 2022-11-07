@@ -1,3 +1,5 @@
 Test("Primer test", () =>  {
-Expect("Hola mundo").toBe("Hola mundo"); 
+    localInicial = new Local();
+    localInicial.generarPaquete();
+    Expect(localInicial.paquetesEnCola).toBe(1); 
 }) 
