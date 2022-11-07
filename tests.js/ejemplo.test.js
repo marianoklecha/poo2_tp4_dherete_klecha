@@ -27,8 +27,7 @@ test("Pasar paquete de local a centro de facturación", () =>  {
 
     centroCalidad = new CentroCalidad();
     centroFacturacion.pasarPaqueteA(centroCalidad);
-    
-    expect(localInicial.paquetesEnCola.length).toBe(0); 
+
     expect(centroFacturacion.paquetesEnCola.length).toBe(0);
     expect(centroCalidad.paquetesEnCola.length).toBe(1); 
 })
