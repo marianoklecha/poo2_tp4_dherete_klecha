@@ -1,3 +1,4 @@
+const Local = require("./src/Local");
 
 test("Primer test", () =>  {
     localInicial = new Local();
