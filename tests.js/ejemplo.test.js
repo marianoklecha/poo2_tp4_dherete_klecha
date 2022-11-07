@@ -1,6 +1,6 @@
 const Local = require("../src/Local");
 
-test("Primer test", () =>  {
+test("Generar paquete en local", () =>  {
     localInicial = new Local();
     localInicial.generarPaquete();
     expect(localInicial.paquetesEnCola).toBe(1); 
