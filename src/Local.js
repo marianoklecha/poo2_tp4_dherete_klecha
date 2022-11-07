@@ -5,10 +5,12 @@ function Local(){
 
     this.generarPaquete = function(){
         this.paquetesEnCola.push(new Paquete());
-        return this.paquetesEnCola.length;
     }
 
-    
+    this.pasarPaqueteA = function(siguiente){
+        paqueteAPasar = this.paquetesEnCola.pop();
+        siguiente.recibirPaquete(paqueteAPasar);
+    }
 }
 
 module.exports = Local;
