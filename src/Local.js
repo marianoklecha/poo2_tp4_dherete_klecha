@@ -1,3 +1,5 @@
+const Paquete = require("./Paquete");
+
 function Local(){
     this.paquetesEnCola = new Array();
     this.generarPaquete = function(){
