@@ -58,3 +58,22 @@ test("Pasar paquete hasta Centro de Distribución y tiempo en 3", () =>  {
     expect(centroDistribucion.paquetesEnCola.length).toBe(1);
     expect(tiempo.tiempoActual).toBe(3);
 })
+
+test("Pasar paquete hasta Destino y tiempo en 4", () =>  {
+    localInicial = new Local();
+    centroFacturacion = new CentroFacturacion();
+    centroCalidad = new CentroCalidad();
+    centroDistribucion = new CentroDistribucion();
+    destino = new Destino();
+    tiempo = new Tiempo();
+
+    localInicial.generarPaquete();
+    tiempo.moverPaquete(localInicial,centroFacturacion);
+    tiempo.moverPaquete(centroFacturacion,centroCalidad);
+    tiempo.moverPaquete(centroCalidad,centroDistribucion);
+    tiempo.moverPaquete(centroDistribucion,destino);
+
+    expect(centroDistribucion.paquetesEnCola.length).toBe(0);
+    expect(destino.paquetesEnCola.length).toBe(1);
+    expect(tiempo.tiempoActual).toBe(4);
+})
