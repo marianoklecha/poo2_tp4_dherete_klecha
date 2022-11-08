@@ -1,3 +1,5 @@
+const Producto = require('./Producto.js');
+
 function Paquete(){
     this.productos = new Array();
     
