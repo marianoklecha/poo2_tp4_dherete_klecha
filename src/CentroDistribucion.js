@@ -5,6 +5,7 @@ function CentroDistribucion(){
     if(!(this instanceof CentroDistribucion)){
         return new CentroDistribucion();
     }
+    this.paquetesEnCola = new Array();
 }
 
 
