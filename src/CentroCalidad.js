@@ -5,8 +5,6 @@ function CentroCalidad(){
     if(!(this instanceof CentroCalidad)){
         return new CentroCalidad();
     }
-
-    this.paquetesEnCola = new Array();
 }
 
 CentroCalidad.prototype = Object.create(Centro.prototype);

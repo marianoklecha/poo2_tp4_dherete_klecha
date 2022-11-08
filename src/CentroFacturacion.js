@@ -5,7 +5,6 @@ function CentroFacturacion(){
     if(!(this instanceof CentroFacturacion)){
         return new CentroFacturacion();
     }
-    this.paquetesEnCola = new Array();
 }
 
 CentroFacturacion.prototype = Object.create(Centro.prototype);
