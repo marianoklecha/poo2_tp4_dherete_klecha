@@ -20,7 +20,7 @@ test("Pasar paquete y sumar tiempo", () =>  {
     centroFacturacion = new CentroFacturacion();
     
     tiempo = new Tiempo();
-    tiempo.moverPaquete(localInicial,centroFacturacion);
+    tiempo.moverPaquetes(localInicial,centroFacturacion);
 
     expect(localInicial.paquetesEnCola.length).toBe(0);
     expect(centroFacturacion.paquetesEnCola.length).toBe(1);
@@ -34,8 +34,8 @@ test("Pasar paquete hasta Centro de Calidad y tiempo en 2", () =>  {
     tiempo = new Tiempo();
 
     localInicial.generarPaquete();
-    tiempo.moverPaquete(localInicial,centroFacturacion);
-    tiempo.moverPaquete(centroFacturacion,centroCalidad);
+    tiempo.moverPaquetes(localInicial,centroFacturacion);
+    tiempo.moverPaquetes(centroFacturacion,centroCalidad);
 
     expect(centroFacturacion.paquetesEnCola.length).toBe(0);
     expect(centroCalidad.paquetesEnCola.length).toBe(1);
@@ -50,9 +50,9 @@ test("Pasar paquete hasta Centro de Distribución y tiempo en 3", () =>  {
     tiempo = new Tiempo();
 
     localInicial.generarPaquete();
-    tiempo.moverPaquete(localInicial,centroFacturacion);
-    tiempo.moverPaquete(centroFacturacion,centroCalidad);
-    tiempo.moverPaquete(centroCalidad,centroDistribucion);
+    tiempo.moverPaquetes(localInicial,centroFacturacion);
+    tiempo.moverPaquetes(centroFacturacion,centroCalidad);
+    tiempo.moverPaquetes(centroCalidad,centroDistribucion);
 
     expect(centroCalidad.paquetesEnCola.length).toBe(0);
     expect(centroDistribucion.paquetesEnCola.length).toBe(1);
@@ -68,10 +68,10 @@ test("Pasar paquete hasta Destino y tiempo en 4", () =>  {
     tiempo = new Tiempo();
 
     localInicial.generarPaquete();
-    tiempo.moverPaquete(localInicial,centroFacturacion);
-    tiempo.moverPaquete(centroFacturacion,centroCalidad);
-    tiempo.moverPaquete(centroCalidad,centroDistribucion);
-    tiempo.moverPaquete(centroDistribucion,destino);
+    tiempo.moverPaquetes(localInicial,centroFacturacion);
+    tiempo.moverPaquetes(centroFacturacion,centroCalidad);
+    tiempo.moverPaquetes(centroCalidad,centroDistribucion);
+    tiempo.moverPaquetes(centroDistribucion,destino);
 
     expect(centroDistribucion.paquetesEnCola.length).toBe(0);
     expect(destino.paquetesEnCola.length).toBe(1);
