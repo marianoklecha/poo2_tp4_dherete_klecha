@@ -26,3 +26,18 @@ test("Pasar paquete y sumar tiempo", () =>  {
     expect(centroFacturacion.paquetesEnCola.length).toBe(1);
     expect(tiempo.tiempoActual).toBe(1);
 })
+
+test("Pasar paquete hasta Centro de Calidad y tiempo en 2", () =>  {
+    localInicial = new Local();
+    centroFacturacion = new CentroFacturacion();
+    centroCalidad = new CentroCalidad();
+    tiempo = new Tiempo();
+
+    localInicial.generarPaquete();
+    tiempo.moverPaquete(localInicial,centroFacturacion);
+    tiempo.moverPaquete(centroFacturacion,centroCalidad);
+
+    expect(centroFacturacion.paquetesEnCola.length).toBe(0);
+    expect(centroCalidad.paquetesEnCola.length).toBe(1);
+    expect(tiempo.tiempoActual).toBe(2);
+})
