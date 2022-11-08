@@ -13,3 +13,16 @@ test("Crear paquete con tiempo en 0", () =>  {
     expect(localInicial.paquetesEnCola.length).toBe(1);
     expect(tiempo.tiempoActual).toBe(0);
 })
+
+test("Pasar paquete y sumar tiempo", () =>  {
+    localInicial = new Local();
+    localInicial.generarPaquete();
+    centroFacturacion = new CentroFacturacion();
+    
+    tiempo = new Tiempo();
+    tiempo.moverPaquete(localInicial,centroFacturacion);
+
+    expect(localInicial.paquetesEnCola.length).toBe(0);
+    expect(centroFacturacion.paquetesEnCola.length).toBe(1);
+    expect(tiempo.tiempoActual).toBe(1);
+})
