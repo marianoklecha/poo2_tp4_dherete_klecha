@@ -88,10 +88,10 @@ test("Pasar cantidad random de paquetes hasta Destino", () =>  {
 
     localInicial.generarPaquetes();
     cantPaquetes = localInicial.paquetesEnCola.length;
-    tiempo.moverPaquete(localInicial,centroFacturacion);
-    tiempo.moverPaquete(centroFacturacion,centroCalidad);
-    tiempo.moverPaquete(centroCalidad,centroDistribucion);
-    tiempo.moverPaquete(centroDistribucion,destino);
+    tiempo.moverPaquetes(localInicial,centroFacturacion);
+    tiempo.moverPaquetes(centroFacturacion,centroCalidad);
+    tiempo.moverPaquetes(centroCalidad,centroDistribucion);
+    tiempo.moverPaquetes(centroDistribucion,destino);
 
     expect(centroDistribucion.paquetesEnCola.length).toBe(0);
     expect(destino.paquetesEnCola.length).toBe(cantPaquetes);
