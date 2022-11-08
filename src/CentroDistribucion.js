@@ -1,14 +1,11 @@
+const Centro = require('./Centro.js');
+
 function CentroDistribucion(){
     this.paquetesEnCola = new Array();
-
-    this.recibirPaquete = function(nuevoPaquete){
-        this.paquetesEnCola.push(nuevoPaquete);
-    }
-    
-    this.pasarPaqueteA = function(siguiente){
-        paqueteAPasar = this.paquetesEnCola.pop();
-        siguiente.recibirPaquete(paqueteAPasar);
-    }
 }
+
+
+CentroDistribucion.prototype = Object.create(Centro.prototype);
+CentroDistribucion.prototype.constructor = CentroDistribucion;
 
 module.exports = CentroDistribucion;

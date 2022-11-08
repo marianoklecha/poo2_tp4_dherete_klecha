@@ -1,7 +1,7 @@
-function Centro(nombre,apellido,dni) {
+function Centro() {
 
     if(!(this instanceof Centro)){
-        return new Centro(nombre,apellido,dni);
+        return new Centro();
     }
 
     this.paquetesEnCola = new Array();

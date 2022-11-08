@@ -1,14 +1,10 @@
+const Centro = require('./Centro.js');
+
 function CentroCalidad(){
     this.paquetesEnCola = new Array();
-
-    this.recibirPaquete = function(nuevoPaquete){
-        this.paquetesEnCola.push(nuevoPaquete);
-    }
-
-    this.pasarPaqueteA = function(siguiente){
-        paqueteAPasar = this.paquetesEnCola.pop();
-        siguiente.recibirPaquete(paqueteAPasar);
-    }
 }
+
+CentroCalidad.prototype = Object.create(Centro.prototype);
+CentroCalidad.prototype.constructor = CentroCalidad;
 
 module.exports = CentroCalidad;
