@@ -4,7 +4,7 @@ function Centro() {
         return new Centro();
     }
 
-    Centro.prototype.paquetesEnCola = new Array();
+    this.paquetesEnCola = new Array();
 
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
         this.paquetesEnCola.push(nuevoPaquete);
