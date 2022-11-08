@@ -1,11 +1,11 @@
 const Centro = require('./Centro.js');
 
 function CentroDistribucion(){
-
+    Centro.call();
     if(!(this instanceof CentroDistribucion)){
         return new CentroDistribucion();
     }
-    
+
     this.paquetesEnCola = new Array();
 }
 

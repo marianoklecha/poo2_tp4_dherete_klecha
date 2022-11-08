@@ -1,6 +1,7 @@
 const Centro = require('./Centro.js');
 
 function CentroCalidad(){
+    Centro.call();
     if(!(this instanceof CentroCalidad)){
         return new CentroCalidad();
     }
