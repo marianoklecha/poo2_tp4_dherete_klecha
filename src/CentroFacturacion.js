@@ -1,6 +1,9 @@
 const Centro = require('./Centro.js');
 
 function CentroFacturacion(){
+    if(!(this instanceof CentroFacturacion)){
+        return new CentroFacturacion();
+    }
     this.paquetesEnCola = new Array();
 }
 
