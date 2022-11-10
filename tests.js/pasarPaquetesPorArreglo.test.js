@@ -32,6 +32,6 @@ test("Mover paquete desde local hasta destino",()=>{
     var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,centroDeCalidad,centroDistribucion,destino);
     var movedor=new Movedor();
     lineaDeProduccion.recorrerCircuito(movedor);
-    expect(tiempoActual.cuantoTiempoPaso()).toBe(lineaDeProduccion.circuito.length);
+    expect(tiempoActual.cuantoTiempoPaso()).toBe(lineaDeProduccion.circuito.length-1);
     
 })
