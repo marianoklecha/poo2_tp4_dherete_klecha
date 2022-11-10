@@ -1,16 +1,11 @@
-function Tiempo(){
-    this.tiempoActual = 0;
-
-    this.moverPaquete = function(origen,destino){
-        origen.pasarPaqueteA(destino);
+var tiempoActual = (function(){
+    var tiempo = 0;
+    function sumarTiempo(){
+        tiempo++;
     }
-
-    this.moverPaquetes = function(origen,destino){
-        while(origen.paquetesEnCola.length != 0){
-            origen.pasarPaqueteA(destino);
-        }
-        this.tiempoActual++;
+    return {
+        sumarTiempo:sumarTiempo
     }
-}
+})();
 
-module.exports = Tiempo;
+module.exports = tiempoActual;

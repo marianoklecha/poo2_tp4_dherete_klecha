@@ -3,7 +3,7 @@ const Destino = require("../src/Destino");
 const CentroFacturacion = require("../src/CentroFacturacion");
 const CentroCalidad = require("../src/CentroCalidad");
 const CentroDistribucion = require("../src/CentroDistribucion");
-const Tiempo = require("../src/Tiempo");
+const tiempoActual= require("../src/Tiempo");
 
 test("Crear paquetes con tiempo en 0", () =>  {
     localInicial = new Local();
