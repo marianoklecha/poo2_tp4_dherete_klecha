@@ -19,8 +19,8 @@ test("Paquete con urgencia 1", ()=>{
     localInicial = new Local();
     localInicial.generarPaquetes();
     (localInicial.paquetesEnCola).forEach(paquete => {
-        
-        expect(paquete.urgencia).toBe(1)
+
+        expect(paquete.urgencia).toBe(1);
     });
 
 })
