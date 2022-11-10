@@ -8,7 +8,7 @@ function Centro() {
     this.capacidadMinima;
 
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
-        if(capacidadMaximaEnEspera>=this.paquetesEnCola.length && capacidadMinima<=this.paquetesEnCola.length){
+        if(this.capacidadMaximaEnEspera>=this.paquetesEnCola.length && this.capacidadMinima<=this.paquetesEnCola.length){
             this.paquetesEnCola.push(nuevoPaquete);
         }
         else{
