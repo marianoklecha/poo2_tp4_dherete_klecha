@@ -17,14 +17,14 @@ test("Crear paquetes con tiempo en 0", () =>  {
 test("Pasar paquete y sumar tiempo", () =>  {
     localInicial = new Local();
     localInicial.generarPaquetes();
+    cantPaquetes = localInicial.paquetesEnCola.length;
     centroFacturacion = new CentroFacturacion();
     
     tiempo = new Tiempo();
     tiempo.moverPaquetes(localInicial,centroFacturacion);
-    cantPaquetes = localInicial.paquetesEnCola.length;
 
     expect(localInicial.paquetesEnCola.length).toBe(0);
-    
+
     expect(centroFacturacion.paquetesEnCola.length).toBe(cantPaquetes);
     expect(tiempo.tiempoActual).toBe(1);
 })
