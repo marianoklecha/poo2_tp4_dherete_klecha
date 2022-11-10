@@ -31,3 +31,5 @@ test("Que centro de facturacion tenga como minimo 10 paquetes y maximo 30 en esp
     expect(()=>{centroDeDistribucion.recibirPaquete(paquetes)}).toThrow(new Error("El centro supera el maximo o no llega al minimo de paquetes"));
    
 })
+
+
