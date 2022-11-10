@@ -4,6 +4,8 @@ const CentroFacturacion = require("../src/CentroFacturacion");
 const CentroCalidad = require("../src/CentroCalidad");
 const CentroDistribucion = require("../src/CentroDistribucion");
 const tiempoActual= require("../src/Tiempo");
+const Movedor= require("../src/Movedor");
+
 
 test("Crear paquetes con tiempo en 0", () =>  {
     localInicial = new Local();
@@ -18,14 +20,14 @@ test("Pasar paquete y sumar tiempo", () =>  {
     localInicial.generarPaquetes();
     cantPaquetes = localInicial.paquetesEnCola.length;
     centroFacturacion = new CentroFacturacion();
-    
-    tiempo = new Tiempo();
-    tiempo.moverPaquetes(localInicial,centroFacturacion);
+    movedor=new Movedor();
+  
+    movedor.moverPaquetes(localInicial,centroFacturacion);
 
     expect(localInicial.paquetesEnCola.length).toBe(0);
 
     expect(centroFacturacion.paquetesEnCola.length).toBe(cantPaquetes);
-    expect(tiempo.tiempoActual).toBe(1);
+    expect(tiempoActual.cuantoTiempoPaso()).toBe(1);
 })
 
 test("Pasar paquete hasta Centro de Calidad y tiempo en 2", () =>  {
