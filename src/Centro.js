@@ -4,9 +4,17 @@ function Centro() {
     }
 
     this.paquetesEnCola = new Array();
+    this.capacidadMaximaEnEspera;
+    this.capacidadMinima;
 
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
-        this.paquetesEnCola.push(nuevoPaquete);
+        if(capacidadMaximaEnEspera>=this.paquetesEnCola.length && capacidadMinima<=this.paquetesEnCola.length){
+            this.paquetesEnCola.push(nuevoPaquete);
+        }
+        else{
+            throw new Error("El centro supera el maximo o no llega al minimo de paquetes")
+        }
+
     }
 
     Centro.prototype.pasarPaqueteA = function(siguiente){
