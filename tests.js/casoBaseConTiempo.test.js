@@ -24,6 +24,7 @@ test("Pasar paquete y sumar tiempo", () =>  {
     cantPaquetes = localInicial.paquetesEnCola.length;
 
     expect(localInicial.paquetesEnCola.length).toBe(0);
+    
     expect(centroFacturacion.paquetesEnCola.length).toBe(cantPaquetes);
     expect(tiempo.tiempoActual).toBe(1);
 })
