@@ -5,7 +5,6 @@ function Movedor(){
         while(origen.paquetesEnCola.length != 0){
             origen.pasarPaqueteA(destino);
         }
-
         tiempoActual.sumarTiempo();
     }
 }

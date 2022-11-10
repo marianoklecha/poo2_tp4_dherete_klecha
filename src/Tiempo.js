@@ -6,9 +6,13 @@ var tiempoActual = (function(){
     function cuantoTiempoPaso() {
         return tiempo;
     }
+    function resetearTiempo() {
+        tiempo=0;
+    }
     return {
         sumarTiempo:sumarTiempo,
-        cuantoTiempoPaso:cuantoTiempoPaso
+        cuantoTiempoPaso:cuantoTiempoPaso,
+        resetearTiempo:resetearTiempo
     }
 })();
 

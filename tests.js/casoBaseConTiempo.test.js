@@ -35,7 +35,7 @@ test("Pasar paquete hasta Centro de Calidad y tiempo en 2", () =>  {
     centroFacturacion = new CentroFacturacion();
     centroCalidad = new CentroCalidad();
     movedor=new Movedor();
-    
+    tiempoActual.resetearTiempo();
 
     localInicial.generarPaquetes();
     cantPaquetes = localInicial.paquetesEnCola.length;
