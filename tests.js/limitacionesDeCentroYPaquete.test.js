@@ -16,7 +16,7 @@ test("Que centro de facturacion tenga como minimo 3 paquetes y maximo 6 en esper
 test("Que centro de facturacion tenga como minimo 2 paquetes y maximo 5 en espera",()=>{
     var centroDeCalidad= new CentroCalidad();
     var paquete=new Paquete();  
-    expect(()=>{CentroCalidad.recibirPaquete(paquetes)}).toThrow(new Error("El centro supera el maximo o no llega al minimo de paquetes"));
+    expect(()=>{CentroCalidad.recibirPaquete(paquete)}).toThrow(new Error("El centro supera el maximo o no llega al minimo de paquetes"));
     var paquetes=[new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete()];
     expect(()=>{centroCalidad.recibirPaquete(paquetes)}).toThrow(new Error("El centro supera el maximo o no llega al minimo de paquetes"));
    
