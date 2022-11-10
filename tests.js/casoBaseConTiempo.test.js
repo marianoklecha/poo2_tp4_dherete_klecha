@@ -94,6 +94,7 @@ test("Pasar cantidad random de paquetes hasta Destino", () =>  {
     centroDistribucion = new CentroDistribucion();
     destino = new Destino();
     movedor=new Movedor();
+    tiempoActual.resetearTiempo();
 
     localInicial.generarPaquetes();
     cantPaquetes = localInicial.paquetesEnCola.length;
