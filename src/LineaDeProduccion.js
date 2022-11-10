@@ -1,8 +1,6 @@
 function LineaDeProduccion(...estaciones){
-    var circuito= new Array();
-    for(estacion in estaciones){
-        circuito.push(estacion);
-    }
+    this.circuito= new Array(estaciones);
+    
 
 }
 module.exports=LineaDeProduccion;
