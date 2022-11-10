@@ -1,6 +1,7 @@
 
 const CentroCalidad = require("../src/CentroCalidad");
 const CentroFacturacion = require("../src/CentroFacturacion");
+const CentroDistribucion = require("../src/CentroDistribucion");
 const Paquete = require("../src/Paquete");
 
 test("Que centro de facturacion tenga como minimo 3 paquetes y maximo 6 en espera",()=>{
