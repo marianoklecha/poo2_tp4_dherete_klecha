@@ -34,17 +34,17 @@ test("Pasar paquete hasta Centro de Calidad y tiempo en 2", () =>  {
     localInicial = new Local();
     centroFacturacion = new CentroFacturacion();
     centroCalidad = new CentroCalidad();
-    tiempo = new Tiempo();
+    movedor=new Movedor();
     
 
     localInicial.generarPaquetes();
     cantPaquetes = localInicial.paquetesEnCola.length;
-    tiempo.moverPaquetes(localInicial,centroFacturacion);
-    tiempo.moverPaquetes(centroFacturacion,centroCalidad);
+    movedor.moverPaquetes(localInicial,centroFacturacion);
+    movedor.moverPaquetes(centroFacturacion,centroCalidad);
 
     expect(centroFacturacion.paquetesEnCola.length).toBe(0);
     expect(centroCalidad.paquetesEnCola.length).toBe(cantPaquetes);
-    expect(tiempo.tiempoActual).toBe(2);
+    expect(tiempoActual.cuantoTiempoPaso()).toBe(2);
 })
 
 test("Pasar paquete hasta Centro de Distribución y tiempo en 3", () =>  {
