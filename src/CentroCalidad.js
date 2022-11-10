@@ -6,6 +6,8 @@ function CentroCalidad(){
         return new CentroCalidad();
     }
     this.paquetesEnCola = new Array();
+    this.capacidadMaximaEnEspera=5;
+    this.capacidadMinima=2;
 }
 
 CentroCalidad.prototype = Object.create(Centro.prototype);

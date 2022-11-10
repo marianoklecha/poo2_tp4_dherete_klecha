@@ -1,5 +1,4 @@
 
-const { test } = require("picomatch");
 const CentroCalidad = require("../src/CentroCalidad");
 const CentroFacturacion = require("../src/CentroFacturacion");
 const Paquete = require("../src/Paquete");
