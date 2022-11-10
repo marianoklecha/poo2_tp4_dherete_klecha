@@ -7,6 +7,7 @@ function Movedor(){
         }
         tiempoActual.sumarTiempo();
     }
+
 }
 
 module.exports = Movedor;
