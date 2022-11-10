@@ -3,8 +3,12 @@ var tiempoActual = (function(){
     function sumarTiempo(){
         tiempo++;
     }
+    function cuantoTiempoPaso() {
+        return tiempo;
+    }
     return {
-        sumarTiempo:sumarTiempo
+        sumarTiempo:sumarTiempo,
+        cuantoTiempoPaso:cuantoTiempoPaso
     }
 })();
 

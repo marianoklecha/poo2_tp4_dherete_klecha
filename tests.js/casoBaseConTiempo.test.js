@@ -8,10 +8,9 @@ const tiempoActual= require("../src/Tiempo");
 test("Crear paquetes con tiempo en 0", () =>  {
     localInicial = new Local();
     localInicial.generarPaquetes();
-    tiempo = new Tiempo();
     cantPaquetes = localInicial.paquetesEnCola.length;
     expect(localInicial.paquetesEnCola.length).toBe(cantPaquetes);
-    expect(tiempo.tiempoActual).toBe(0);
+    expect(tiempoActual).toBe(0);
 })
 
 test("Pasar paquete y sumar tiempo", () =>  {
