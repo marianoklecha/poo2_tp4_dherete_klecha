@@ -10,7 +10,7 @@ test("Crear paquetes con tiempo en 0", () =>  {
     localInicial.generarPaquetes();
     cantPaquetes = localInicial.paquetesEnCola.length;
     expect(localInicial.paquetesEnCola.length).toBe(cantPaquetes);
-    expect(tiempoActual).toBe(0);
+    expect(tiempoActual.cuantoTiempoPaso()).toBe(0);
 })
 
 test("Pasar paquete y sumar tiempo", () =>  {
