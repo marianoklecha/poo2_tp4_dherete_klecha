@@ -1,5 +1,4 @@
 function Centro() {
-
     if(!(this instanceof Centro)){
         return new Centro();
     }
