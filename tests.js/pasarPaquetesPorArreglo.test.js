@@ -1,9 +1,5 @@
 // LineaDeProduccion  = [ localInicial, centroFacturacion, centroCalidad, centroDistribucion, destino ] 
 
-const { default: expect } = require("expect");
-const CentroCalidad = require("../src/CentroCalidad");
-
-
 // LargoLinea = lineaDeProduccion.obtenerLargo(); 
 
 // for(var i = LargoLinea; i--;i>0){ 
