@@ -7,7 +7,7 @@ const Tiempo = require("../src/Tiempo");
 
 test("Crear paquete con tiempo en 0", () =>  {
     localInicial = new Local();
-    localInicial.generarPaquete();
+    localInicial.generarPaquetes();
     tiempo = new Tiempo();
 
     expect(localInicial.paquetesEnCola.length).toBe(1);
@@ -16,7 +16,7 @@ test("Crear paquete con tiempo en 0", () =>  {
 
 test("Pasar paquete y sumar tiempo", () =>  {
     localInicial = new Local();
-    localInicial.generarPaquete();
+    localInicial.generarPaquetes();
     centroFacturacion = new CentroFacturacion();
     
     tiempo = new Tiempo();
@@ -33,7 +33,7 @@ test("Pasar paquete hasta Centro de Calidad y tiempo en 2", () =>  {
     centroCalidad = new CentroCalidad();
     tiempo = new Tiempo();
 
-    localInicial.generarPaquete();
+    localInicial.generarPaquetes();
     tiempo.moverPaquetes(localInicial,centroFacturacion);
     tiempo.moverPaquetes(centroFacturacion,centroCalidad);
 
@@ -49,7 +49,7 @@ test("Pasar paquete hasta Centro de Distribución y tiempo en 3", () =>  {
     centroDistribucion = new CentroDistribucion();
     tiempo = new Tiempo();
 
-    localInicial.generarPaquete();
+    localInicial.generarPaquetes();
     tiempo.moverPaquetes(localInicial,centroFacturacion);
     tiempo.moverPaquetes(centroFacturacion,centroCalidad);
     tiempo.moverPaquetes(centroCalidad,centroDistribucion);
@@ -67,7 +67,7 @@ test("Pasar paquete hasta Destino y tiempo en 4", () =>  {
     destino = new Destino();
     tiempo = new Tiempo();
 
-    localInicial.generarPaquete();
+    localInicial.generarPaquetes();
     tiempo.moverPaquetes(localInicial,centroFacturacion);
     tiempo.moverPaquetes(centroFacturacion,centroCalidad);
     tiempo.moverPaquetes(centroCalidad,centroDistribucion);
