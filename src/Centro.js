@@ -12,7 +12,7 @@ function Centro() {
             this.paquetesEnCola.push(nuevoPaquete);
         }
         else{
-            throw new Error("El centro supera el maximo o no llega al minimo de paquetes")
+            throw new Error("El centro supera el maximo o no llega al minimo de paquetes");
         }
 
     }
