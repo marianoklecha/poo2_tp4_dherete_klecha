@@ -1,4 +1,5 @@
 function LineaDeProduccion(...estaciones){
-    var circuito= new Array(5);
+    var circuito= new Array(estaciones);
+
 }
 module.exports=LineaDeProduccion;
