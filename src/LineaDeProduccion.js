@@ -1,5 +1,5 @@
 function LineaDeProduccion(...estaciones){
-    this.circuito= new Array(estaciones);
+    this.circuito= estaciones;
     
 
 }
