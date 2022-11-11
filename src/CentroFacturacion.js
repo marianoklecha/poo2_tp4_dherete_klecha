@@ -7,9 +7,7 @@ function CentroFacturacion(){
     }
     this.paquetesEnCola = new Array();
     this.capacidadMaximaEnEspera=6;
-    this.capacidadMinima=3;
 
-    
 }
 
 CentroFacturacion.prototype = Object.create(Centro.prototype);

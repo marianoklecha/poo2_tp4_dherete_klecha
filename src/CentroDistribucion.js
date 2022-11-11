@@ -7,7 +7,6 @@ function CentroDistribucion(){
     }
     this.paquetesEnCola = new Array();
     this.capacidadMaximaEnEspera=30;
-    this.capacidadMinima=10;
 }
 
 
