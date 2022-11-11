@@ -29,11 +29,9 @@ test("Que centro de facturacion tenga como maximo entre 10 y 30 en espera",()=>{
 
 test("Que centro de facturacion pueda procesar hasta 3 paquetes",()=>{
     var centroFacturacion= new CentroFacturacion();
-    var local=new Local();
-    local.generarPaquetes();
-    var movedor=new Movedor();
-    movedor.moverPaquetes(local,centroFacturacion);
-    
+
+    centroFacturacion.paquetesEnCola=[new Paquete(), new Paquete(),new Paquete(),new Paquete()];
+
     centroFacturacion.procesar();
     
     expect(centroFacturacion.paquetesProcesados.length).toBeLessThanOrEqual(3);
