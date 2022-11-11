@@ -4,7 +4,7 @@ const CentroFacturacion = require("../src/CentroFacturacion");
 const CentroCalidad = require("../src/CentroCalidad");
 const CentroDistribucion = require("../src/CentroDistribucion");
 
-test("Generar paquete en local", () =>  {
+test("Generar paquete en  local", () =>  {
     localInicial = new Local();
     localInicial.generarPaquete();
     expect(localInicial.paquetesEnCola.length).toBe(1); 
