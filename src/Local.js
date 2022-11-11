@@ -4,7 +4,7 @@ function Local(){
     this.paquetesEnCola = new Array();
 
     this.generarPaquetes = function(){
-        cantidadPaquetes = Math.random() * (3 - 1) + 1;
+        cantidadPaquetes = Math.random() * (6 - 1) + 1;
         for(var i = 0; i<cantidadPaquetes; i++){
             this.paquetesEnCola.push(new Paquete());
         }
