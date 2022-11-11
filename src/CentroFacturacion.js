@@ -7,8 +7,6 @@ function CentroFacturacion(){
     }
     this.paquetesEnCola = new Array();
     this.capacidadMaximaEnEspera=6;
-    this.capacidadMinima=3;
-
     
 }
 
