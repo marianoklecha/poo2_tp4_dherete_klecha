@@ -15,7 +15,7 @@ test("Crear paquetes con tiempo en 0", () =>  {
     expect(tiempoActual.cuantoTiempoPaso()).toBe(0);
 })
 
-test("Pasar paquete y sumar tiempo", () =>  {
+test("Pasar paquete y sumar  tiempo", () =>  {
     localInicial = new Local();
     localInicial.generarPaquetes();
     cantPaquetes = localInicial.paquetesEnCola.length;
