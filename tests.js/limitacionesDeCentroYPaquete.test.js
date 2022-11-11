@@ -6,10 +6,6 @@ const Paquete = require("../src/Paquete");
 
 test("Que centro de facturacion tenga como minimo 3 paquetes y maximo 6 en espera",()=>{
     var centroFacturacion= new CentroFacturacion();
-    var paquetes=[new Paquete(),new Paquete()];  
-    expect(()=>{centroFacturacion.recibirPaquete(paquetes)}).toThrow(new Error("El centro supera el maximo de paquetes"));
-    var paquetes= paquetes[0];
-    expect(()=>{centroFacturacion.recibirPaquete(paquetes)}).toThrow(new Error("El centro supera el maximo de paquetes"));
     paquetes=[new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete()];
     expect(()=>{centroFacturacion.recibirPaquete(paquetes)}).toThrow(new Error("El centro supera el maximo de paquetes"));
 })
