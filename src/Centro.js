@@ -5,9 +5,15 @@ function Centro() {
 
     this.paquetesEnCola = new Array();
     this.capacidadMaximaEnEspera;
+<<<<<<< HEAD
 
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
         if(this.capacidadMaximaEnEspera>=this.paquetesEnCola.length+nuevoPaquete.length){
+=======
+ 
+    Centro.prototype.recibirPaquete = function(nuevoPaquete){
+        if(this.capacidadMaximaEnEspera < this.paquetesEnCola.length+nuevoPaquete.length){
+>>>>>>> a23c880a7ee11553df7d35bdb8b76adf55510ba4
             this.paquetesEnCola.push(nuevoPaquete);
         }
         else{
