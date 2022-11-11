@@ -6,7 +6,7 @@ function CentroDistribucion(){
         return new CentroDistribucion();
     }
     this.paquetesEnCola = new Array();
-    this.capacidadMaximaEnEspera=30;
+    this.capacidadMaximaEnEspera=Math.floor(Math.random() * (30 - 10) + 10);
 }
 
 

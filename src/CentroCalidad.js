@@ -6,7 +6,7 @@ function CentroCalidad(){
         return new CentroCalidad();
     }
     this.paquetesEnCola = new Array();
-    this.capacidadMaximaEnEspera=5;
+    this.capacidadMaximaEnEspera=Math.floor(Math.random() * (6 - 2) + 2);
 }
 CentroCalidad.prototype = Object.create(Centro.prototype);
 CentroCalidad.prototype.constructor = CentroCalidad;
