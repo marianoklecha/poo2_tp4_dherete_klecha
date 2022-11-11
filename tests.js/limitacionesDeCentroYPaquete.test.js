@@ -27,7 +27,7 @@ test("Que centro de facturacion tenga como maximo entre 10 y 30 en espera",()=>{
 })
 
 
-test("Que centro de facturacion pueda procesar hasta 3 paquetes",()=>{
+test("Que centro de facturacion pueda procesar solo hasta 3 paquetes",()=>{
     var centroFacturacion= new CentroFacturacion();
     centroFacturacion.paquetesEnCola=[new Paquete(), new Paquete(),new Paquete(),new Paquete()];
     centroFacturacion.procesarPaquetesEnEspera();
@@ -45,7 +45,7 @@ test("Que centro de calidad pueda procesar solo 1 paquete",()=>{
    
 })
 
-test("Que centro de distribución pueda procesar hasta 10 paquetes",()=>{
+test("Que centro de distribución pueda procesar solo hasta 10 paquetes",()=>{
     var centroDeDistribucion= new CentroDistribucion();
     centroDeDistribucion.paquetesEnCola=[new Paquete(), new Paquete(),new Paquete(),new Paquete(),
         new Paquete(), new Paquete(),new Paquete(),new Paquete(),
