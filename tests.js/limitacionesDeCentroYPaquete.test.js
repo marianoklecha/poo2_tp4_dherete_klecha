@@ -36,4 +36,11 @@ test("Que centro de facturacion pueda procesar hasta 3 paquetes",()=>{
    
 })
 
-
+test("Que centro de calidad pueda procesar solo 1 paquete",()=>{
+    var centroDeCalidad= new CentroCalidad();
+    centroDeCalidad.paquetesEnCola=[new Paquete(), new Paquete(),new Paquete(),new Paquete()];
+    centroDeCalidad.procesar();
+    
+    expect(centroDeCalidad.paquetesProcesados.length).toBeLessThanOrEqual(1);
+   
+})
