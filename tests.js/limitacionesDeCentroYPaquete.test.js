@@ -44,3 +44,12 @@ test("Que centro de calidad pueda procesar solo 1 paquete",()=>{
     expect(centroDeCalidad.paquetesProcesados.length).toBeLessThanOrEqual(1);
    
 })
+
+test("Que centro de distribución pueda procesar hasta 10 paquetes",()=>{
+    var centroDeDistribucion= new CentroDistribucion();
+    centroDeDistribucion.paquetesEnCola=[new Paquete(), new Paquete(),new Paquete(),new Paquete()];
+    centroDeDistribucion.procesar();
+    
+    expect(centroDeDistribucion.paquetesProcesados.length).toBeLessThanOrEqual(10);
+   
+})
