@@ -6,7 +6,16 @@ function CentroCalidad(){
         return new CentroCalidad();
     }
     this.paquetesEnCola = new Array();
-    this.capacidadMaximaEnEspera=Math.floor(Math.random() * (6 - 2) + 2);
+    this.paquetesProcesados=new Array();
+    this.capacidadMaximaEnEspera = Math.floor(Math.random() * (6 - 2) + 2);
+
+    this.procesar=function(){
+        for(var i =0; i<3;i++){
+            if(this.paquetesEnCola.length!=0){
+                this.paquetesProcesados.push(this.paquetesEnCola[i]);
+            }
+        }
+    }
 }
 CentroCalidad.prototype = Object.create(Centro.prototype);
 CentroCalidad.prototype.constructor = CentroCalidad;
