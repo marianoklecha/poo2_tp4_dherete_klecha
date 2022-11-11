@@ -7,9 +7,10 @@ function CentroCalidad(){
     }
     this.paquetesEnCola = new Array();
     this.paquetesProcesados=new Array();
+
     this.capacidadMaximaEnEspera = Math.floor(Math.random() * (6 - 2) + 2);
 
-    this.procesar=function(){
+    this.procesarPaquetesEnEspera=function(){
         if(this.paquetesEnCola.length!=0){
             this.paquetesProcesados.push(this.paquetesEnCola[0]);
         }
