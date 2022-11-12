@@ -6,7 +6,7 @@ const Destino = require("../src/Destino");
 const Paquete = require("../src/Paquete");
 const Movedor = require("../src/Movedor");
 const Local = require("../src/Local");
-
+/*
 test("Que centro de facturacion tenga como maximo entre 3 y 6 en espera",()=>{
     var centroFacturacion= new CentroFacturacion();
     paquetes=[new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete(),new Paquete()];
@@ -27,6 +27,7 @@ test("Que centro de facturacion tenga como maximo entre 10 y 30 en espera",()=>{
    
 })
 
+*/
 
 test("Que centro de facturacion pueda procesar solo hasta 3 paquetes",()=>{
     var centroFacturacion= new CentroFacturacion();
