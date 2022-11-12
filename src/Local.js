@@ -17,7 +17,7 @@ function Local(){
     }
 
     this.ordenarPaquetesSegunUrgencia = function(){
-        this.paquetesEnCola.sort(((a, b) => a.urgencia - b.urgencia));
+        this.paquetesEnCola.sort(((a, b) => b.urgencia - a.urgencia));
     }
 }
 
