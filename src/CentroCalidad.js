@@ -7,14 +7,11 @@ function CentroCalidad(){
     }
     this.paquetesEnCola = new Array();
     this.paquetesProcesados=new Array();
+    this.maximoAProcesar = 1;
 
     this.capacidadMaximaEnEspera = Math.floor(Math.random() * (6 - 2) + 2);
 
-    this.procesarPaquetesEnEspera=function(){
-        if(this.paquetesEnCola.length!=0){
-            this.paquetesProcesados.push(this.paquetesEnCola[0]);
-        }
-    }
+   
 }
 CentroCalidad.prototype = Object.create(Centro.prototype);
 CentroCalidad.prototype.constructor = CentroCalidad;

@@ -57,13 +57,26 @@ test("Que centro de distribución pueda procesar solo hasta 10 paquetes",()=>{
    
 })
 
-test("Ordenar Paquetes en Local",()=>{
+test("Ordenar Paquetes en Local de mayor a menor",()=>{
     var local=new Local();
     var destino=new Destino();
     var centroDeFacturacion=new CentroFacturacion();
     var centroDeCalidad=new CentroCalidad();
     var centroDistribucion= new CentroDistribucion();
     var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,centroDeCalidad,centroDistribucion,destino);
+
+    local.generarPaquetes(lineaDeProduccion.queLargoTiene());
+
+    for (let i = 0; i < local.paquetesEnCola.length-1; i++) {
+        expect(local.paquetesEnCola[i].urgencia).toBeGreaterThanOrEqual(local.paquetesEnCola[i+1].urgencia);
+    }
+})
+
+test("Ordenar Paquetes en Local de mayor a menor",()=>{
+    var local=new Local();
+    var destino=new Destino();
+    var centroDeFacturacion=new CentroFacturacion();
+    var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,destino);
 
     local.generarPaquetes(lineaDeProduccion.queLargoTiene());
 

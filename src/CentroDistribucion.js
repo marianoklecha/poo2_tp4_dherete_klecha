@@ -7,16 +7,9 @@ function CentroDistribucion(){
     }
     this.paquetesEnCola = new Array();
     this.paquetesProcesados = new Array();
+    this.maximoAProcesar = 10;
 
     this.capacidadMaximaEnEspera=Math.floor(Math.random() * (30 - 10) + 10);
-
-    this.procesarPaquetesEnEspera=function(){
-        for(var i =0; i<10;i++){
-            if(this.paquetesEnCola.length!=0){
-                this.paquetesProcesados.push(this.paquetesEnCola[i]);
-            }
-        }
-    }
 }
 
 

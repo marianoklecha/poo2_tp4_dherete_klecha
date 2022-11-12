@@ -7,16 +7,9 @@ function CentroFacturacion(){
     }
     this.paquetesEnCola = new Array();
     this.paquetesProcesados = new Array();
+    this.maximoAProcesar = 3;
 
     this.capacidadMaximaEnEspera=Math.floor(Math.random() * (7 - 3) + 3);
-
-    this.procesarPaquetesEnEspera=function(){
-        for(var i =0; i<3;i++){
-            if(this.paquetesEnCola.length!=0){
-                this.paquetesProcesados.push(this.paquetesEnCola[i]);
-            }
-        }
-    }
 }
 
 CentroFacturacion.prototype = Object.create(Centro.prototype);

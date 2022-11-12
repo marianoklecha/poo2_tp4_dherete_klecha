@@ -4,7 +4,9 @@ function Centro() {
     }
 
     this.paquetesEnCola = new Array();
+    this.paquetesProcesados = new Array();
     this.capacidadMaximaEnEspera;
+    this.maximoAProcesar;
 
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
         if(this.capacidadMaximaEnEspera>= this.paquetesEnCola.length+nuevoPaquete.length){
@@ -17,8 +19,17 @@ function Centro() {
     }
 
     Centro.prototype.pasarPaqueteA = function(siguiente){
-        paqueteAPasar = this.paquetesEnCola.pop();
+
+        paqueteAPasar = this.paquetesProcesados.pop();
         siguiente.recibirPaquete(paqueteAPasar);
+    }
+
+    Centro.prototype.procesarPaquetesEnEspera=function(){
+        for(var i =0; i<this.maximoAProcesar;i++){
+            if(this.paquetesEnCola.length!=0){
+                this.paquetesProcesados.push(this.paquetesEnCola[i]);
+            }
+        }
     }
 }
 
