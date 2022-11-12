@@ -1,6 +1,7 @@
 const CentroCalidad = require("../src/CentroCalidad");
 const CentroFacturacion = require("../src/CentroFacturacion");
 const CentroDistribucion = require("../src/CentroDistribucion");
+const Destino = require("../src/Destino");
 const Paquete = require("../src/Paquete");
 const Movedor = require("../src/Movedor");
 const Local = require("../src/Local");
