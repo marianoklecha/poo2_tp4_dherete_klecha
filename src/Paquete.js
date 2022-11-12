@@ -1,8 +1,13 @@
 const Producto = require('./Producto.js');
 
-function Paquete(){
+function Paquete(largoLineaDeProduccion){
     this.productos = new Array(new Producto("Tijera",5));
-    this.urgencia=Math.floor(Math.random() * (4 - 1) + 1);
+
+    var randomUrgencia = Math.floor(Math.random() * (3 - 0) + 0);
+    var tiposDeUrgencia = [1,1.5,2];
+
+    this.urgencia = (tiposDeUrgencia[randomUrgencia])*largoLineaDeProduccion;
+
 }
 
 module.exports = Paquete;
