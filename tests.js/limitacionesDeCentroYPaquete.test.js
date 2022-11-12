@@ -1,4 +1,3 @@
-
 const CentroCalidad = require("../src/CentroCalidad");
 const CentroFacturacion = require("../src/CentroFacturacion");
 const CentroDistribucion = require("../src/CentroDistribucion");
@@ -54,4 +53,19 @@ test("Que centro de distribución pueda procesar solo hasta 10 paquetes",()=>{
     
     expect(centroDeDistribucion.paquetesProcesados.length).toBeLessThanOrEqual(10);
    
+})
+
+test("Ordenar Paquetes en Local",()=>{
+    var local=new Local();
+    var destino=new Destino();
+    var centroDeFacturacion=new CentroFacturacion();
+    var centroDeCalidad=new CentroCalidad();
+    var centroDistribucion= new CentroDistribucion();
+    var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,centroDeCalidad,centroDistribucion,destino);
+
+    local.generarPaquetes(lineaDeProduccion.queLargoTiene());
+
+    for (let i = 0; i < local.paquetesEnCola.length-1; i++) {
+        expect(paquetesEnCola[i].urgencia).toBeLessThanOrEqual(paquetesEnCola[i].urgencia);
+    }
 })
