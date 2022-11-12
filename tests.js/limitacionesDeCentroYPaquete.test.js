@@ -72,15 +72,20 @@ test("Ordenar Paquetes en Local de mayor a menor",()=>{
     }
 })
 
-test("Ordenar Paquetes en Local de mayor a menor",()=>{
+test("Ordenar Paquetes en Centro de Facturación de mayor a menor",()=>{
     var local=new Local();
     var destino=new Destino();
     var centroDeFacturacion=new CentroFacturacion();
-    var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,destino);
-
     local.generarPaquetes(lineaDeProduccion.queLargoTiene());
 
-    for (let i = 0; i < local.paquetesEnCola.length-1; i++) {
-        expect(local.paquetesEnCola[i].urgencia).toBeGreaterThanOrEqual(local.paquetesEnCola[i+1].urgencia);
+    var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,destino);
+    lineaDeProduccion.recorrerCircuito();
+
+    for (let i = 0; i < centroDeFacturacion.paquetesEnCola.length-1; i++) {
+        expect(centroDeFacturacion.paquetesEnCola[i].urgencia).toBeGreaterThanOrEqual(centroDeFacturacion.paquetesEnCola[i+1].urgencia);
+    }
+
+    for (let i = 0; i < centroDeFacturacion.paquetesProcesados.length-1; i++) {
+        expect(centroDeFacturacion.paquetesProcesados[i].urgencia).toBeGreaterThanOrEqual(centroDeFacturacion.paquetesProcesados[i+1].urgencia);
     }
 })
