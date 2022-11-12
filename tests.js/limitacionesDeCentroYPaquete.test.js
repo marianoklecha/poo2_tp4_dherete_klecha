@@ -113,7 +113,7 @@ test("Ordenar Paquetes en Centro de Calidad de mayor a menor",()=>{
 test("Ordenar Paquetes en Centro de Distribucion de mayor a menor",()=>{
     var local=new Local();
     var destino=new Destino();
-    var centroDeDistribucion=new centroDistribucion();
+    var centroDeDistribucion=new CentroDistribucion();
     var lineaDeProduccion= new LineaDeProduccion(local,centroDeDistribucion,destino);
     local.generarPaquetes(lineaDeProduccion.queLargoTiene());
     var movedor = new Movedor();
