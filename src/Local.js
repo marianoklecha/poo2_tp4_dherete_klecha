@@ -8,11 +8,16 @@ function Local(){
         for(var i = 0; i<cantidadPaquetes; i++){
             this.paquetesEnCola.push(new Paquete(largoLineaDeProduccion));
         }
+        this.ordenarPaquetesSegunUrgencia();
     }
 
     this.pasarPaqueteA = function(siguiente){
         paqueteAPasar = this.paquetesEnCola.pop();
         siguiente.recibirPaquete(paqueteAPasar);
+    }
+
+    this.ordenarPaquetesSegunUrgencia = function(){
+        this.paquetesEnCola.sort(((a, b) => b.urgencia - a.urgencia));
     }
 }
 
