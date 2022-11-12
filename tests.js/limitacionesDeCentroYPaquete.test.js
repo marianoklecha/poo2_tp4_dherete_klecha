@@ -90,3 +90,22 @@ test("Ordenar Paquetes en Centro de Facturación de mayor a menor",()=>{
         expect(centroDeFacturacion.paquetesProcesados[i].urgencia).toBeGreaterThanOrEqual(centroDeFacturacion.paquetesProcesados[i+1].urgencia);
     }
 })
+
+test("Ordenar Paquetes en Centro de Calidad de mayor a menor",()=>{
+    var local=new Local();
+    var destino=new Destino();
+    var centroCalidad=new CentroCalidad();
+    var lineaDeProduccion= new LineaDeProduccion(local,centroCalidad,destino);
+    local.generarPaquetes(lineaDeProduccion.queLargoTiene());
+    var movedor = new Movedor();
+    lineaDeProduccion.recorrerCircuito(movedor);
+
+    for (let i = 0; i < centroCalidad.paquetesEnCola.length-1; i++) {
+        expect(centroCalidad.paquetesEnCola[i].urgencia).toBeGreaterThanOrEqual(centroCalidad.paquetesEnCola[i+1].urgencia);
+    }
+
+    for (let i = 0; i < centroCalidad.paquetesProcesados.length-1; i++) {
+        expect(centroCalidad.paquetesProcesados[i].urgencia).toBeGreaterThanOrEqual(centroCalidad.paquetesProcesados[i+1].urgencia);
+    }
+})
+
