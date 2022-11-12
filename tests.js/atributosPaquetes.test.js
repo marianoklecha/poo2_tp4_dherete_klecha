@@ -3,6 +3,7 @@ const Destino = require("../src/Destino");
 const CentroFacturacion = require("../src/CentroFacturacion");
 const CentroCalidad = require("../src/CentroCalidad");
 const CentroDistribucion = require("../src/CentroDistribucion");
+const LineaDeProduccion=require("../src/LineaDeProduccion");
 
 test("Paquete con productos", () =>  {
     localInicial = new Local();
