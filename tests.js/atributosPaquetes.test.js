@@ -16,17 +16,6 @@ test("Paquete con productos", () =>  {
 
 })
 
-test("Paquete con urgencia 1 ", ()=>{
-    localInicial = new Local();
-    localInicial.generarPaquetes();
-    (localInicial.paquetesEnCola).forEach(paquete => {
-
-        expect(paquete.urgencia).toBeGreaterThanOrEqual(1);
-        expect(paquete.urgencia).toBeLessThanOrEqual(3);
-    });
-
-})
-
 test("Paquete con tiempo de urgencia largoLinea*(1, 1.5 o 2)", ()=>{
     var local=new Local();
     var destino=new Destino();
