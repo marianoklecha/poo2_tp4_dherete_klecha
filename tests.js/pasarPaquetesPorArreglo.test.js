@@ -1,7 +1,3 @@
-
-
- 
-
 const Local = require("../src/Local");
 const Destino = require("../src/Destino");
 const CentroFacturacion = require("../src/CentroFacturacion");
@@ -9,7 +5,6 @@ const CentroCalidad = require("../src/CentroCalidad");
 const CentroDistribucion = require("../src/CentroDistribucion");
 const LineaDeProduccion=require("../src/LineaDeProduccion");
 const Movedor = require("../src/Movedor");
-const { default: expect } = require("expect");
 const tiempoActual = require("../src/Tiempo");
 
 

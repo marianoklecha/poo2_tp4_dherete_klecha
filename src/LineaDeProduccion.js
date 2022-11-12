@@ -1,3 +1,5 @@
+const { toThrowErrorMatchingSnapshot } = require("jest-snapshot");
+
 function LineaDeProduccion(...estaciones){
     this.circuito= estaciones;
     this.recorrerCircuito=function(movedor){
@@ -6,7 +8,8 @@ function LineaDeProduccion(...estaciones){
 
        }
    }
-    
-
+   this.queLargoTiene = function(){
+        return this.circuito.length;
+   }
 }
 module.exports=LineaDeProduccion;
