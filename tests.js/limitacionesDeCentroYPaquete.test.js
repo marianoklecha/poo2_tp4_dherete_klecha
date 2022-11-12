@@ -68,6 +68,6 @@ test("Ordenar Paquetes en Local",()=>{
     local.generarPaquetes(lineaDeProduccion.queLargoTiene());
 
     for (let i = 0; i < local.paquetesEnCola.length-1; i++) {
-        expect(local.paquetesEnCola[i].urgencia).toBeLessThanOrEqual(local.paquetesEnCola[i].urgencia);
+        expect(local.paquetesEnCola[i].urgencia).toBeLessThanOrEqual(local.paquetesEnCola[i+1].urgencia);
     }
 })
