@@ -76,9 +76,9 @@ test("Ordenar Paquetes en Centro de Facturación de mayor a menor",()=>{
     var local=new Local();
     var destino=new Destino();
     var centroDeFacturacion=new CentroFacturacion();
+    var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,destino);
     local.generarPaquetes(lineaDeProduccion.queLargoTiene());
 
-    var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,destino);
     lineaDeProduccion.recorrerCircuito();
 
     for (let i = 0; i < centroDeFacturacion.paquetesEnCola.length-1; i++) {
