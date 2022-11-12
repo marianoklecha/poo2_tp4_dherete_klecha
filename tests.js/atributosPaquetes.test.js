@@ -25,3 +25,21 @@ test("Paquete con urgencia 1", ()=>{
     });
 
 })
+
+test("Paquete con tiempo de urgencia largoLinea*(1, 1.5 o 2)", ()=>{
+    var local=new Local();
+    var destino=new Destino();
+    var centroDeFacturacion=new CentroFacturacion();
+    var centroDeCalidad=new CentroCalidad();
+    var centroDistribucion= new CentroDistribucion();
+    var lineaDeProduccion= new LineaDeProduccion(local,centroDeFacturacion,centroDeCalidad,centroDistribucion,destino);
+    var largoLineaDeProduccion = lineaDeProduccion.queLargoTiene();
+
+    local.generarPaquetes(largoLineaDeProduccion);
+    (local.paquetesEnCola).forEach(paquete => {
+
+        expect(paquete.urgencia).toBeGreaterThanOrEqual(largoLineaDeProduccion);
+        expect(paquete.urgencia).toBeLessThanOrEqual(largoLineaDeProduccion*2);
+    });
+
+})
