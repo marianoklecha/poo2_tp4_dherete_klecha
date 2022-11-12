@@ -12,13 +12,16 @@ function Local(){
     }
 
     this.pasarPaqueteA = function(siguiente){
-        paqueteAPasar = this.paquetesEnCola.pop();
-        siguiente.recibirPaquete(paqueteAPasar);
+        if(siguiente.puedeRecibirPaquetes()){
+            paqueteAPasar = this.paquetesEnCola.pop();
+            siguiente.recibirPaquete(paqueteAPasar);
+        }
     }
 
     this.ordenarPaquetesSegunUrgencia = function(){
         this.paquetesEnCola.sort(((a, b) => b.urgencia - a.urgencia));
     }
+
 }
 
 module.exports = Local;
