@@ -11,7 +11,7 @@ function Centro() {
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
         
         this.paquetesEnCola.push(nuevoPaquete);
-        this.ordenarPaquetesSegunUrgencia(this.paquetesEnCola);
+        ordenarPaquetesSegunUrgencia(this.paquetesEnCola);
         
     }
 
@@ -38,7 +38,7 @@ function Centro() {
             cont+=1;
             
         }
-        this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
+       ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
     }
 
     Centro.prototype.puedeRecibirPaquetes = function(){
@@ -56,7 +56,7 @@ function Centro() {
 
 
     Centro.prototype.ordenarPaquetesSegunUrgencia = function(paquetesAOrdenar){
-        this.paquetesAOrdenar.sort(((a, b) => b.urgencia - a.urgencia));
+        paquetesAOrdenar.sort(((a, b) => b.urgencia - a.urgencia));
     }
 }
 
