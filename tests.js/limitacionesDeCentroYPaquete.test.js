@@ -86,7 +86,7 @@ test("Ordenar Paquetes en Centro de Facturación de mayor a menor",()=>{
         expect(centroDeFacturacion.paquetesEnCola[i].urgencia).toBeGreaterThanOrEqual(centroDeFacturacion.paquetesEnCola[i+1].urgencia);
     }
     expect(centroDeFacturacion.paquetesProcesados.length).toBeGreaterThan(0);
-    lineaDeProduccion.recorrerCircuito(movedor);
+    
     for (let i = 0; i < centroDeFacturacion.paquetesProcesados.length-1; i++) {
         expect(centroDeFacturacion.paquetesProcesados[i].urgencia).toBeGreaterThanOrEqual(centroDeFacturacion.paquetesProcesados[i+1].urgencia);
     }
