@@ -9,9 +9,9 @@ function Centro() {
     this.maximoAProcesar;
 
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
-        if(this.capacidadMaximaEnEspera>= this.paquetesEnCola.length+nuevoPaquete.length){
-            this.paquetesEnCola.push(nuevoPaquete);
-        }
+        
+        this.paquetesEnCola.push(nuevoPaquete);
+        
     }
 
     Centro.prototype.pasarPaqueteA = function(siguiente){
@@ -28,9 +28,10 @@ function Centro() {
         //     }
         // }
         var cont=0;
-        while(cont<this.maximoAProcesar){
+        while(cont<this.maximoAProcesar && this.paquetesEnCola.length!=0){
             if(this.paquetesEnCola.length!=0){
-                this.paquetesProcesados.push(this.paquetesEnCola.pop());
+                var paquete=this.paquetesEnCola.pop()
+                this.paquetesProcesados.push(paquete);
             }
             cont+=1;
             
@@ -38,7 +39,7 @@ function Centro() {
     }
 
     Centro.prototype.puedeRecibirPaquetes = function(){
-        if(this.capacidadMaximaEnEspera == this.paquetesEnCola.length){
+        if(this.capacidadMaximaEnEspera <= this.paquetesEnCola.length){
             return false;
         } else {
             return true;
