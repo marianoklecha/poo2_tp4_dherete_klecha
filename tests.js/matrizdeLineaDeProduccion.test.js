@@ -1,4 +1,5 @@
 
+const Local = require("../src/Local");
 const MapaDeProduccion = require("../src/MapaDeProduccion");
 const Paquete = require("../src/Paquete");
 
@@ -19,4 +20,6 @@ test("Mover paquetes hasta su destino",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
     mapaDeProduccion.crearMapa();
     mapaDeProduccion.llevarPaquetesADestino();
+
+    expect(mapaDeProduccion.cantidadDePaquetesCreados).toBeLessThanOrEqual(mapaDeProduccion.cantidadDePaquetesRecibidos);
 })
