@@ -11,7 +11,7 @@ function Centro() {
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
         
         this.paquetesEnCola.push(nuevoPaquete);
-        ordenarPaquetesSegunUrgencia(this.paquetesEnCola);
+        this.ordenarPaquetesSegunUrgencia(this.paquetesEnCola);
         
     }
 
@@ -38,7 +38,7 @@ function Centro() {
             cont+=1;
             
         }
-       ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
+       this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
     }
 
     Centro.prototype.puedeRecibirPaquetes = function(){
