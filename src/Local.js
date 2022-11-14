@@ -22,6 +22,10 @@ function Local(){
         this.paquetesEnCola.sort(((a, b) => b.urgencia - a.urgencia));
     }
 
+    this.soyCentro = function(){
+        return false;
+    }
+
 }
 
 module.exports = Local;

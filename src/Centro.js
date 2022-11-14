@@ -36,6 +36,11 @@ function Centro() {
             return true;
         }
     }
+
+
+    Centro.prototype.soyCentro = function(){
+        return true;
+    }
 }
 
 
