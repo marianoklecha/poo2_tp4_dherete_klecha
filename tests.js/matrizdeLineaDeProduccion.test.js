@@ -12,5 +12,5 @@ test("Que la cantidad de lineas de produccion sean mayor o igual a la cantidad d
 
 test("Que cada paquete tenga un destino",()=>{
     var paquete=new Paquete(6);
-    expect(paquete.destino).toBeLessOrEqual(4);
+    expect(paquete.destino).toBeLessThanOrEqual(4);
 })
