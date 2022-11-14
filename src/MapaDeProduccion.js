@@ -4,6 +4,7 @@ const CentroDistribucion = require("./CentroDistribucion");
 const CentroFacturacion = require("./CentroFacturacion");
 const Centro = require("./Centro");
 const Destino = require("../src/Destino");
+const LineaDeProduccion=require("../src/LineaDeProduccion");
 function MapaDeProduccion(){
     this.cantidadDeFilasDeProduccion=Math.random() * (6 - 1) + 1;
 
