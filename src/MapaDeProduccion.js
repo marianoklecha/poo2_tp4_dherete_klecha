@@ -6,8 +6,7 @@ const Centro = require("./Centro");
 const Destino = require("../src/Destino");
 const LineaDeProduccion=require("../src/LineaDeProduccion");
 function MapaDeProduccion(){
-    this.cantidadDeFilasDeProduccion=Math.random() * (6 - 1) + 1;
-
+    this.cantidadDeFilasDeProduccion=4;
     this.lineasDeProduccion= new Array();
     this.crearMapa=function(){
         for (var i=0;i<4+ 1;i++){
@@ -16,7 +15,7 @@ function MapaDeProduccion(){
 
     }
     this.cantidadCentros=function(){
-        return 4;
+        return 6;
     }
 }
 
