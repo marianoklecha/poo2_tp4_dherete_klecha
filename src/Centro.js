@@ -11,6 +11,7 @@ function Centro() {
     Centro.prototype.recibirPaquete = function(nuevoPaquete){
         
         this.paquetesEnCola.push(nuevoPaquete);
+        this.ordenarPaquetesSegunUrgencia(this.paquetesEnCola);
         
     }
 
@@ -27,6 +28,7 @@ function Centro() {
         //         this.paquetesProcesados.push(this.paquetesEnCola[i]);
         //     }
         // }
+
         var cont=0;
         while(cont<this.maximoAProcesar && this.paquetesEnCola.length!=0){
             if(this.paquetesEnCola.length!=0){
@@ -36,6 +38,7 @@ function Centro() {
             cont+=1;
             
         }
+        this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
     }
 
     Centro.prototype.puedeRecibirPaquetes = function(){
@@ -49,6 +52,11 @@ function Centro() {
 
     Centro.prototype.soyCentro = function(){
         return true;
+    }
+
+
+    this.ordenarPaquetesSegunUrgencia = function(paquetesAOrdenar){
+        this.paquetesAOrdenar.sort(((a, b) => b.urgencia - a.urgencia));
     }
 }
 
