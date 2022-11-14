@@ -17,6 +17,9 @@ function MapaDeProduccion(){
     this.cantidadCentros=function(){
         return 6;
     }
+    this.llevarPaquetesADestino=function (){
+        
+    }
 }
 
 module.exports=MapaDeProduccion;
