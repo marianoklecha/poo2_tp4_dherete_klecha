@@ -2,19 +2,11 @@ const tiempoActual= require("../src/Tiempo");
 function Movedor(){
     this.moverPaquetes = function(origen,destino){
 
-        if(origen.soyCentro()){
-            while(origen.paquetesProcesados.length != 0 ){
-                origen.pasarPaqueteA(destino);
-            }
-            tiempoActual.sumarTiempo();
+        while(destino.puedeRecibirPaquetes()  ){
+            origen.pasarPaqueteA(destino);
         }
-        else{
-            while(origen.paquetesEnCola.length!=0){
-                origen.pasarPaqueteA(destino);
-            }
-            tiempoActual.sumarTiempo();
-            
-        }
+        tiempoActual.sumarTiempo();
+        
   
       
     }

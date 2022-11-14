@@ -82,15 +82,17 @@ test("Ordenar Paquetes en Centro de Facturación de mayor a menor",()=>{
     local.generarPaquetes(lineaDeProduccion.queLargoTiene());
 
     var movedor = new Movedor();
-    lineaDeProduccion.recorrerCircuito(movedor);
 
-    
+    movedor.moverPaquetes(local,centroDeFacturacion);
+    //lineaDeProduccion.recorrerCircuito(movedor);
+
+    console.log(centroDeFacturacion.paquetesEnCola.length);
     for (let i = 0; i < centroDeFacturacion.paquetesEnCola.length-1; i++) {
-
+        
         expect(centroDeFacturacion.paquetesEnCola[i].urgencia).toBeGreaterThanOrEqual(centroDeFacturacion.paquetesEnCola[i+1].urgencia);
     }
-    console.log(centroDeFacturacion.paquetesEnCola.length);
-    lineaDeProduccion.recorrerCircuito(movedor);
+   
+
     for (let i = 0; i < centroDeFacturacion.paquetesProcesados.length-1; i++) {
         expect(centroDeFacturacion.paquetesProcesados[i].urgencia).toBeGreaterThanOrEqual(centroDeFacturacion.paquetesProcesados[i+1].urgencia);
     }
