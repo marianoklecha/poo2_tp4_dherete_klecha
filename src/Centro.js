@@ -55,7 +55,7 @@ function Centro() {
     }
 
 
-    this.ordenarPaquetesSegunUrgencia = function(paquetesAOrdenar){
+    Centro.prototype.ordenarPaquetesSegunUrgencia = function(paquetesAOrdenar){
         this.paquetesAOrdenar.sort(((a, b) => b.urgencia - a.urgencia));
     }
 }
