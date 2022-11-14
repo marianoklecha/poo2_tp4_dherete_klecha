@@ -15,6 +15,9 @@ function MapaDeProduccion(){
         }
 
     }
+    this.cantidadCentros=function(){
+        return 4;
+    }
 }
 
 module.exports=MapaDeProduccion;
