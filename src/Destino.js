@@ -8,6 +8,10 @@ function Destino(){
     this.soyCentro = function(){
         return false;
     }
+
+    this.puedeRecibirPaquetes = function(){
+        return true;
+    }
 }
 
 module.exports = Destino;
