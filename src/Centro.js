@@ -31,9 +31,8 @@ function Centro() {
         while(cont<this.maximoAProcesar){
             if(this.paquetesEnCola.length!=0){
                 this.paquetesProcesados.push(this.paquetesEnCola.pop());
-                    
-                cont+=1;
             }
+            cont+=1;
             
         }
     }
