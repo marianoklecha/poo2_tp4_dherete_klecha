@@ -22,9 +22,17 @@ function Centro() {
     }
 
     Centro.prototype.procesarPaquetesEnEspera=function(){
-        for(var i =0; i<this.maximoAProcesar;i++){
-            if(this.paquetesEnCola.length!=0){
-                this.paquetesProcesados.push(this.paquetesEnCola[i]);
+        // for(var i =0; i<this.maximoAProcesar;i++){
+        //     if(this.paquetesEnCola.length!=0){
+        //         this.paquetesProcesados.push(this.paquetesEnCola[i]);
+        //     }
+        // }
+        var cont=0;
+        while(cont<this.maximoAProcesar){
+            for(var i=this.paquetesEnCola.length-1;i>0;i--){
+                if(this.paquetesEnCola.length!=0){
+                    this.paquetesProcesados.push(this.paquetesEnCola[i]);
+                }
             }
         }
     }
