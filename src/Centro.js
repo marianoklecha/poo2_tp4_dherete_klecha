@@ -29,11 +29,12 @@ function Centro() {
         // }
         var cont=0;
         while(cont<this.maximoAProcesar){
-            for(var i=this.paquetesEnCola.length-1;i>0;i--){
-                if(this.paquetesEnCola.length!=0){
-                    this.paquetesProcesados.push(this.paquetesEnCola[i]);
-                }
+            if(this.paquetesEnCola.length!=0){
+                this.paquetesProcesados.push(this.paquetesEnCola.pop());
+                    
+                cont+=1;
             }
+            
         }
     }
 
