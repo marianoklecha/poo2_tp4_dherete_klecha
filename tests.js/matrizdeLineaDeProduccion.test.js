@@ -101,11 +101,6 @@ test("Que lleguen TODOS los paquetes a destino con tiempo restando urgencia",()=
 })
 
 test("Unir paquetes con mismo destino",()=>{
-    var mapaDeProduccion= new MapaDeProduccion();
-    var movedor = new Movedor();
-
-    mapaDeProduccion.crearMapa();
-   
     var centroDistribucion= new CentroDistribucion();
     centroDistribucion.paquetesProcesados.push(new Paquete(mapaDeProduccion.lineasDeProduccion[0].circuito.length),1);
     centroDistribucion.paquetesProcesados.push(new Paquete(mapaDeProduccion.lineasDeProduccion[0].circuito.length),1);
