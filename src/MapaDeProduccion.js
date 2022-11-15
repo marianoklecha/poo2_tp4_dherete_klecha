@@ -46,6 +46,14 @@ function MapaDeProduccion(){
                             destinoDelPaquete = paqueteAPasar.destino;
                             origen.paquetesProcesados.push(paqueteAPasar);
 
+                            if(i>destinoDelPaquete){
+                                destino = this.lineasDeProduccion[i-1].circuito[k];
+                            } else if(i<destinoDelPaquete){
+                                destino = this.lineasDeProduccion[i+1].circuito[k];
+                            } else if(i==destinoDelPaquete){
+                                destino = this.lineasDeProduccion[i].circuito[k];
+                            } 
+
                             while(origen.paquetesProcesados.length != 0 && destino.puedeRecibirPaquetes()){
 
                                 if(i>destinoDelPaquete){
@@ -60,6 +68,14 @@ function MapaDeProduccion(){
                                     paqueteAPasar = origen.paquetesProcesados.pop();
                                     destinoDelPaquete = paqueteAPasar.destino;
                                     origen.paquetesProcesados.push(paqueteAPasar);
+
+                                    if(i>destinoDelPaquete){
+                                        destino = this.lineasDeProduccion[i-1].circuito[k];
+                                    } else if(i<destinoDelPaquete){
+                                        destino = this.lineasDeProduccion[i+1].circuito[k];
+                                    } else if(i==destinoDelPaquete){
+                                        destino = this.lineasDeProduccion[i].circuito[k];
+                                    } 
                                 }
                             }
                         }
@@ -69,6 +85,14 @@ function MapaDeProduccion(){
                             paqueteAPasar = origen.paquetesEnCola.pop();
                             destinoDelPaquete = paqueteAPasar.destino;
                             origen.paquetesEnCola.push(paqueteAPasar);
+
+                            if(i>destinoDelPaquete){
+                                destino = this.lineasDeProduccion[i-1].circuito[k];
+                            } else if(i<destinoDelPaquete){
+                                destino = this.lineasDeProduccion[i+1].circuito[k];
+                            } else if(i==destinoDelPaquete){
+                                destino = this.lineasDeProduccion[i].circuito[k];
+                            } 
 
                             while(origen.paquetesEnCola.length!=0 &&  destino.puedeRecibirPaquetes()){
                                 paqueteAPasar = origen.paquetesEnCola.pop();
@@ -81,11 +105,19 @@ function MapaDeProduccion(){
                                     origen.pasarPaqueteA(this.lineasDeProduccion[i+1].circuito[k]);
                                 } else if(i==destinoDelPaquete){
                                     origen.pasarPaqueteA(this.lineasDeProduccion[i].circuito[k]);
-                                } 
+                                }
                                 if(origen.paquetesEnCola.length != 0){
                                     paqueteAPasar = origen.paquetesEnCola.pop();
                                     destinoDelPaquete = paqueteAPasar.destino;
                                     origen.paquetesEnCola.push(paqueteAPasar);
+
+                                    if(i>destinoDelPaquete){
+                                        destino = this.lineasDeProduccion[i-1].circuito[k];
+                                    } else if(i<destinoDelPaquete){
+                                        destino = this.lineasDeProduccion[i+1].circuito[k];
+                                    } else if(i==destinoDelPaquete){
+                                        destino = this.lineasDeProduccion[i].circuito[k];
+                                    } 
                                 }
                             }
                         }
