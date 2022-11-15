@@ -1,4 +1,3 @@
-const Movedor = require("../src/Movedor");
 const Local = require("../src/Local");
 const MapaDeProduccion = require("../src/MapaDeProduccion");
 const Movedor = require("../src/Movedor");
@@ -26,6 +25,6 @@ test("Mover paquetes hasta su  destino",()=>{
     var cantCreados = mapaDeProduccion.contarCantidadDePaquetes(0);
     mapaDeProduccion.llevarPaquetesADestino(movedor);
     var cantRecibidos = mapaDeProduccion.cantidadDePaquetesRecibidos(5);
-    
+
     expect(cantCreados).toBeLessThanOrEqual(cantRecibidos);
 })
