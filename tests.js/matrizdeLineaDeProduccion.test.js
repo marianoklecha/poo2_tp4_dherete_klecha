@@ -36,6 +36,7 @@ test("Mover paquetes hasta su destino CASO NO LINEAL",()=>{
     mapaDeProduccion.crearMapa();
     mapaDeProduccion.llevarPaquetesADestino(movedor);
     var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(5);
-
+    console.log(cantRecibidos);
+    console.log(mapaDeProduccion.lineasDeProduccion[1].circuito[5].paquetesEnCola.length);
     expect(cantRecibidos).toBe(mapaDeProduccion.lineasDeProduccion[1].circuito[5].paquetesEnCola.length);
 })
