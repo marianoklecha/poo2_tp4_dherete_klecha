@@ -29,8 +29,9 @@ function MapaDeProduccion(){
     this.cantidadCentros=function(){
         return 6;
     }
+
     this.llevarPaquetesADestino=function (movedor){
-        for(var i=0; i<this.cantidadCentros()-1; i++){
+        for(var i=0; i<5; i++){
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
                 this.lineasDeProduccion[i].recorrerCircuito(movedor);
             }
