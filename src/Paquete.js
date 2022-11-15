@@ -8,6 +8,9 @@ function Paquete(largoLineaDeProduccion,destino){
     this.urgencia = Math.floor((tiposDeUrgencia[randomUrgencia])*largoLineaDeProduccion);
 
     this.destino=destino;
+    this.restarUrgencia=function(){
+        this.urgencia-=1;
+    }
 
 }
 

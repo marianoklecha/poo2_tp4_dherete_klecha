@@ -5,6 +5,8 @@ const CentroFacturacion = require("./CentroFacturacion");
 const Centro = require("./Centro");
 const Destino = require("../src/Destino");
 const LineaDeProduccion=require("../src/LineaDeProduccion");
+const tiempoActual= require("../src/Tiempo");
+
 
 function MapaDeProduccion(){
     this.cantidadCentros=function(){
@@ -49,8 +51,9 @@ function MapaDeProduccion(){
     }
 
 
-    this.llevarPaquetesADestino=function (movedor){
+    this.llevarPaquetesADestino=function (movedor){ 
         
+
         for(var j=0; j<this.cantidadCentros()-1; j++){
 
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
@@ -64,6 +67,7 @@ function MapaDeProduccion(){
                         if(origen.paquetesProcesados.length != 0){
                             paqueteAPasar = origen.paquetesProcesados.pop();
                             destinoDelPaquete = paqueteAPasar.destino;
+                            paqueteAPasar.restarUrgencia();
                             origen.paquetesProcesados.push(paqueteAPasar);
 
                             if(i>destinoDelPaquete){
@@ -87,6 +91,7 @@ function MapaDeProduccion(){
                                 if(origen.paquetesProcesados.length != 0){
                                     paqueteAPasar = origen.paquetesProcesados.pop();
                                     destinoDelPaquete = paqueteAPasar.destino;
+                                    paqueteAPasar.restarUrgencia();
                                     origen.paquetesProcesados.push(paqueteAPasar);
 
                                     if(i>destinoDelPaquete){
@@ -104,6 +109,7 @@ function MapaDeProduccion(){
                         if(origen.paquetesEnCola.length != 0){
                             paqueteAPasar = origen.paquetesEnCola.pop();
                             destinoDelPaquete = paqueteAPasar.destino;
+                            paqueteAPasar.restarUrgencia();
                             origen.paquetesEnCola.push(paqueteAPasar);
 
                             if(i>destinoDelPaquete){
@@ -117,6 +123,7 @@ function MapaDeProduccion(){
                             while(origen.paquetesEnCola.length!=0 &&  destino.puedeRecibirPaquetes()){
                                 paqueteAPasar = origen.paquetesEnCola.pop();
                                 destinoDelPaquete = paqueteAPasar.destino;
+                                paqueteAPasar.restarUrgencia();
                                 origen.paquetesEnCola.push(paqueteAPasar);
 
                                 if(i>destinoDelPaquete){
@@ -129,6 +136,7 @@ function MapaDeProduccion(){
                                 if(origen.paquetesEnCola.length != 0){
                                     paqueteAPasar = origen.paquetesEnCola.pop();
                                     destinoDelPaquete = paqueteAPasar.destino;
+                                    paqueteAPasar.restarUrgencia();
                                     origen.paquetesEnCola.push(paqueteAPasar);
 
                                     if(i>destinoDelPaquete){
@@ -145,6 +153,8 @@ function MapaDeProduccion(){
 
                     
                }
+            tiempoActual.sumarTiempo();
+            
 
             }
         }
