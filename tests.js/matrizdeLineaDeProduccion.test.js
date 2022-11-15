@@ -1,3 +1,4 @@
+const { default: expect } = require("expect");
 const Local = require("../src/Local");
 const MapaDeProduccion = require("../src/MapaDeProduccion");
 const Movedor = require("../src/Movedor");
@@ -89,12 +90,26 @@ test("Que lleguen TODOS los paquetes a destino con tiempo restando urgencia",()=
         cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
     }
 
-    
+
     for(var i=0;i<mapaDeProduccion.cantidadDeFilasDeProduccion;i++){
         (mapaDeProduccion.lineasDeProduccion[i].circuito[5].paquetesEnCola).forEach(paquete => {
             expect(paquete.urgencia).toBeLessThanOrEqual(7);
         });
     
     }
+    
+})
+
+test("Unir paquetes con mismo destino",()=>{
+    var mapaDeProduccion= new MapaDeProduccion();
+    var movedor = new Movedor();
+
+    mapaDeProduccion.crearMapa();
+   
+    var centroDistribucion= new centroDistribucion();
+    centroDistribucion.paquetesProcesados.push(new Paquete(mapaDeProduccion.lineasDeProduccion[0].circuito.length),1);
+    centroDistribucion.paquetesProcesados.push(new Paquete(mapaDeProduccion.lineasDeProduccion[0].circuito.length),1);
+    expect(centroDistribucion.paquetesProcesados.length).toBe(1);
+    
     
 })
