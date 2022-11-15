@@ -1,6 +1,7 @@
-
+const Movedor = require("../src/Movedor");
 const Local = require("../src/Local");
 const MapaDeProduccion = require("../src/MapaDeProduccion");
+const Movedor = require("../src/Movedor");
 const Paquete = require("../src/Paquete");
 
 
@@ -18,10 +19,13 @@ test("Que cada paquete tenga un destino",()=>{
 
 test("Mover paquetes hasta su  destino",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
-    mapaDeProduccion.crearMapa();
-    mapaDeProduccion.llevarPaquetesADestino();
+    var movedor = new Movedor();
 
-    var cantCreados = mapaDeProduccion.cantidadDePaquetesCreados;
-    var cantRecibidos = mapaDeProduccion.cantidadDePaquetesRecibidos;
+    mapaDeProduccion.crearMapa();
+
+    var cantCreados = mapaDeProduccion.contarCantidadDePaquetes(0);
+    mapaDeProduccion.llevarPaquetesADestino(movedor);
+    var cantRecibidos = mapaDeProduccion.cantidadDePaquetesRecibidos(5);
+    
     expect(cantCreados).toBeLessThanOrEqual(cantRecibidos);
 })

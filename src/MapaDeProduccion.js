@@ -7,11 +7,22 @@ const Destino = require("../src/Destino");
 const LineaDeProduccion=require("../src/LineaDeProduccion");
 
 function MapaDeProduccion(){
-    this.cantidadDeFilasDeProduccion=4;
+    this.cantidadDePaquetesCreados=4;
     this.lineasDeProduccion= new Array();
+    
+    
+    this.contarCantidadDePaquetes = function(indiceDeArr){
+        var cont = 0;
+        for(var i = 0; i<cantidadDePaquetesCreados;i++){
+            cont+= this.lineasDeProduccion[indiceDeArr].paquetesEnCola.length;
+        }
+        return cont;
+    }
+
     this.crearMapa=function(){
         for (var i=0;i<4+ 1;i++){
             this.lineasDeProduccion.push(new LineaDeProduccion(new Local(),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino() ));
+            this.lineasDeProduccion[i].circuito[0].generarPaquetes();
         }
 
     }
@@ -19,8 +30,8 @@ function MapaDeProduccion(){
         return 6;
     }
     this.llevarPaquetesADestino=function (movedor){
-        for(i=0; i<this.cantidadCentros()-1; i++){
-            for(i = 0; i<this.cantidadDeFilasDeProduccion;i++){
+        for(var i=0; i<this.cantidadCentros()-1; i++){
+            for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
                 this.lineasDeProduccion[i].recorrerCircuito(movedor);
             }
         }
