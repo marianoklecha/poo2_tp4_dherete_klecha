@@ -13,7 +13,7 @@ function MapaDeProduccion(){
     
     this.contarCantidadDePaquetes = function(indiceDeArr){
         var cont = 0;
-        for(var i = 0; i<cantidadDePaquetesCreados;i++){
+        for(var i = 0; i<this.cantidadDePaquetesCreados;i++){
             cont+= this.lineasDeProduccion[indiceDeArr].paquetesEnCola.length;
         }
         return cont;
