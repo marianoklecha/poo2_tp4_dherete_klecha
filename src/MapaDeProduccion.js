@@ -7,9 +7,8 @@ const Destino = require("../src/Destino");
 const LineaDeProduccion=require("../src/LineaDeProduccion");
 
 function MapaDeProduccion(){
-    this.cantidadDeFilasDeProduccion=4;
+    this.cantidadDeFilasDeProduccion = Math.random() * (10 - 2) + 2;;
     this.lineasDeProduccion= new Array();
-    
     
     this.contarCantidadDePaquetes = function(indiceDeArr){
         var cont = 0;
@@ -20,9 +19,11 @@ function MapaDeProduccion(){
     }
 
     this.crearMapa=function(){
+        
         for (var i=0;i< this.cantidadDeFilasDeProduccion;i++){
             this.lineasDeProduccion.push(new LineaDeProduccion(new Local(),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino()));
-            this.lineasDeProduccion[i].circuito[0].generarPaquetes(6,1);
+            var indiceDestino=this.cantidadDeFilasDeProduccion = Math.random() * (this.cantidadDeFilasDeProduccion - 0) + 0;;
+            this.lineasDeProduccion[i].circuito[0].generarPaquetes(this.cantidadCentros(),);
         }
 
     }
@@ -128,13 +129,6 @@ function MapaDeProduccion(){
 
             }
         }
-    }
-
-    this.subirOBajarPaquetes = function(fila,arrayDePaquetes){
-        while(arrayDePaquetes.length != 0){
-            origen.pasarPaqueteA(destino);
-        }
-        tiempoActual.sumarTiempo();
     }
 
 }
