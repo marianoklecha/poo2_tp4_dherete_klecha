@@ -7,13 +7,13 @@ const Destino = require("../src/Destino");
 const LineaDeProduccion=require("../src/LineaDeProduccion");
 
 function MapaDeProduccion(){
-    this.cantidadDePaquetesCreados=4;
+    this.cantidadDeFilasDeProduccion=4;
     this.lineasDeProduccion= new Array();
     
     
     this.contarCantidadDePaquetes = function(indiceDeArr){
         var cont = 0;
-        for(var i = 0; i<this.cantidadDePaquetesCreados;i++){
+        for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
             cont+= this.lineasDeProduccion[i].circuito[indiceDeArr].paquetesEnCola.length;
         }
         return cont;
