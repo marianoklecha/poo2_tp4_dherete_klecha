@@ -16,7 +16,20 @@ test("Que cada paquete tenga un destino",()=>{
     expect(paquete.destino).toBeLessThanOrEqual(4);
 })
 
-test("Mover paquetes hasta su  destino",()=>{
+test("Mover paquetes hasta su destino CASO LINEAL",()=>{
+    var mapaDeProduccion= new MapaDeProduccion();
+    var movedor = new Movedor();
+
+    mapaDeProduccion.crearMapa();
+
+    var cantCreados = mapaDeProduccion.contarCantidadDePaquetes(0);
+    mapaDeProduccion.llevarPaquetesADestino(movedor);
+    var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(5);
+
+    expect(cantCreados).toBeGreaterThanOrEqual(cantRecibidos);
+})
+
+test("Mover paquetes hasta su destino CASO NO LINEAL",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
     var movedor = new Movedor();
 
