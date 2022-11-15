@@ -26,5 +26,5 @@ test("Mover paquetes hasta su  destino",()=>{
     mapaDeProduccion.llevarPaquetesADestino(movedor);
     var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(5);
 
-    expect(cantCreados).toBeLessThanOrEqual(cantRecibidos);
+    expect(cantCreados).toBeGreaterThanOrEqual(cantRecibidos);
 })
