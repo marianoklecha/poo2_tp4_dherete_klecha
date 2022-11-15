@@ -50,6 +50,7 @@ function MapaDeProduccion(){
 
 
     this.llevarPaquetesADestino=function (movedor){
+        
         for(var j=0; j<this.cantidadCentros()-1; j++){
 
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){

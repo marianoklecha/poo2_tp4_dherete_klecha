@@ -64,11 +64,14 @@ test("Que lleguen TODOS los paquetes a destino",()=>{
 
     mapaDeProduccion.crearMapa();
 
-    var cantCreados = mapaDeProduccion.contarCantidadDePaquetes(0);
-
-    mapaDeProduccion.llevarPaquetesADestino(movedor);
-
+    var cantidadTotal = mapaDeProduccion.contarPaquetesEnTotal();
     var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
+    while(cantidadTotal-cantRecibidos!=0){
+        mapaDeProduccion.llevarPaquetesADestino(movedor);
+        cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
+    }
+
+  
     
-    expect(cantRecibidos).toBe(cantCreados);
+    expect(cantidadTotal).toBe(cantRecibidos);
 })
