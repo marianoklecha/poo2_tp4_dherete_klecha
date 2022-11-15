@@ -5,6 +5,7 @@ const CentroFacturacion = require("./CentroFacturacion");
 const Centro = require("./Centro");
 const Destino = require("../src/Destino");
 const LineaDeProduccion=require("../src/LineaDeProduccion");
+
 function MapaDeProduccion(){
     this.cantidadDeFilasDeProduccion=4;
     this.lineasDeProduccion= new Array();
@@ -17,8 +18,12 @@ function MapaDeProduccion(){
     this.cantidadCentros=function(){
         return 6;
     }
-    this.llevarPaquetesADestino=function (){
-        
+    this.llevarPaquetesADestino=function (movedor){
+        for(i=0; i<this.cantidadCentros()-1; i++){
+            for(i = 0; i<this.cantidadDeFilasDeProduccion;i++){
+                this.lineasDeProduccion[i].recorrerCircuito(movedor);
+            }
+        }
     }
 }
 
