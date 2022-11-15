@@ -2,7 +2,7 @@ const Local = require("../src/Local");
 const MapaDeProduccion = require("../src/MapaDeProduccion");
 const Movedor = require("../src/Movedor");
 const Paquete = require("../src/Paquete");
-const CentroDistribucion = require("./CentroDistribucion");
+const CentroDistribucion = require("../src/CentroDistribucion");
 
 
 test("Que la cantidad de lineas de produccion sean mayor o igual a la cantidad de locales",()=>{
