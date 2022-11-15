@@ -20,8 +20,8 @@ test("Mover paquetes hasta su  destino",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
     mapaDeProduccion.crearMapa();
     mapaDeProduccion.llevarPaquetesADestino();
-    
-    cantCreados = mapaDeProduccion.cantidadDePaquetesCreados;
-    cantRecibidos = mapaDeProduccion.cantidadDePaquetesRecibidos;
-    expect(cantCreados).toBe(cantCreados);
+
+    var cantCreados = mapaDeProduccion.cantidadDePaquetesCreados;
+    var cantRecibidos = mapaDeProduccion.cantidadDePaquetesRecibidos;
+    expect(cantCreados).toBeLessThanOrEqual(cantRecibidos);
 })
