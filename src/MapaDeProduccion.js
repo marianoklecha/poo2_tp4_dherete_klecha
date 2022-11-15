@@ -35,7 +35,7 @@ function MapaDeProduccion(){
 
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
 
-                for(var k = cantidadCentros()-1;k>0;k--){ //Recorriendo paquetes
+                for(var k = this.cantidadCentros()-1;k>0;k--){ //Recorriendo paquetes
                     origen = this.lineasDeProduccion[i].circuito[k-1];
 
                     if(origen.soyCentro()){
