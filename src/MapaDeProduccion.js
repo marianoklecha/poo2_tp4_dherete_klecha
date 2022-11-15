@@ -19,7 +19,13 @@ function MapaDeProduccion(){
     this.contarCantidadDePaquetes = function(indiceDeArr){
         var cont = 0;
         for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
-            cont+= this.lineasDeProduccion[i].circuito[indiceDeArr].paquetesEnCola.length;
+
+            if(this.lineasDeProduccion[i].circuito[indiceDeArr].soyCentro()){
+             cont+= this.lineasDeProduccion[i].circuito[indiceDeArr].paquetesEnCola.length+this.lineasDeProduccion[i].circuito[indiceDeArr].paquetesProcesados.length;
+            }
+            else{
+                cont+= this.lineasDeProduccion[i].circuito[indiceDeArr].paquetesEnCola.length
+            }  
         }
         return cont;
     }
