@@ -35,28 +35,63 @@ function MapaDeProduccion(){
 
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
 
-                for(var k = this.lineasDeProduccion[i].circuito.length-1;k>0;k--){ //Recorriendo paquetes
+                for(var k = cantidadCentros()-1;k>0;k--){ //Recorriendo paquetes
+                    origen = this.lineasDeProduccion[i].circuito[k-1];
 
-                    if(this.lineasDeProduccion[i].circuito[k-1].soyCentro()){
-                        this.lineasDeProduccion[i].circuito[k-1].procesarPaquetesEnEspera();
-                        paqueteAPasar = this.lineasDeProduccion[i].circuito[k-1].paquetesProcesados.pop();
-                        destinoDelPaquete = paqueteAPasar.destino;
-                        this.lineasDeProduccion[i].circuito[k-1].paquetesProcesados.push(paqueteAPasar);
+                    if(origen.soyCentro()){
+                        origen.procesarPaquetesEnEspera();
 
+                        if(origen.paquetesProcesados.length != 0){
+                            paqueteAPasar = origen.paquetesProcesados.pop();
+                            destinoDelPaquete = paqueteAPasar.destino;
+                            origen.paquetesProcesados.push(paqueteAPasar);
+
+                            while(origen.paquetesProcesados.length != 0 && destino.puedeRecibirPaquetes()){
+
+                                if(i>destinoDelPaquete){
+                                    origen.pasarPaqueteA(this.lineasDeProduccion[i-1].circuito[k]);
+                                } else if(i<destinoDelPaquete){
+                                    origen.pasarPaqueteA(this.lineasDeProduccion[i+1].circuito[k]);
+                                } else if(i==destinoDelPaquete){
+                                    origen.pasarPaqueteA(this.lineasDeProduccion[i].circuito[k]);
+                                }
+
+                                if(origen.paquetesProcesados.length != 0){
+                                    paqueteAPasar = origen.paquetesProcesados.pop();
+                                    destinoDelPaquete = paqueteAPasar.destino;
+                                    origen.paquetesProcesados.push(paqueteAPasar);
+                                }
+                            }
+                        }
+                        
                     } else{
-                        this.lineasDeProduccion[i].circuito[k-1].procesarPaquetesEnEspera();
-                        paqueteAPasar = this.lineasDeProduccion[i].circuito[k-1].paquetesEnCola.pop();
-                        destinoDelPaquete = paqueteAPasar.destino;
-                        this.lineasDeProduccion[i].circuito[k-1].paquetesEnCola.push(paqueteAPasar);
+                        if(origen.paquetesEnCola.length != 0){
+                            paqueteAPasar = origen.paquetesEnCola.pop();
+                            destinoDelPaquete = paqueteAPasar.destino;
+                            origen.paquetesEnCola.push(paqueteAPasar);
+
+                            while(origen.paquetesEnCola.length!=0 &&  destino.puedeRecibirPaquetes()){
+                                paqueteAPasar = origen.paquetesEnCola.pop();
+                                destinoDelPaquete = paqueteAPasar.destino;
+                                origen.paquetesEnCola.push(paqueteAPasar);
+
+                                if(i>destinoDelPaquete){
+                                    origen.pasarPaqueteA(this.lineasDeProduccion[i-1].circuito[k]);
+                                } else if(i<destinoDelPaquete){
+                                    origen.pasarPaqueteA(this.lineasDeProduccion[i+1].circuito[k]);
+                                } else if(i==destinoDelPaquete){
+                                    origen.pasarPaqueteA(this.lineasDeProduccion[i].circuito[k]);
+                                } 
+                                if(origen.paquetesEnCola.length != 0){
+                                    paqueteAPasar = origen.paquetesEnCola.pop();
+                                    destinoDelPaquete = paqueteAPasar.destino;
+                                    origen.paquetesEnCola.push(paqueteAPasar);
+                                }
+                            }
+                        }
                     }
 
-                    if(i>destinoDelPaquete){
-                        this.lineasDeProduccion[i].circuito[k-1].pasarPaqueteA(this.lineasDeProduccion[i-1].circuito[k]);
-                    } else if(i<destinoDelPaquete){
-                        this.lineasDeProduccion[i].circuito[k-1].pasarPaqueteA(this.lineasDeProduccion[i+1].circuito[k]);
-                    } else if(i==destinoDelPaquete){
-                        this.lineasDeProduccion[i].circuito[k-1].pasarPaqueteA(this.lineasDeProduccion[i].circuito[k]);
-                    } 
+                    
                }
 
             }
