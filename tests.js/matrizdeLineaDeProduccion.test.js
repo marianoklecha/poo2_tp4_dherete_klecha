@@ -47,6 +47,6 @@ test("Mover paquetes hasta su destino CASO NO LINEAL SIN NUMEROS FIJOS, CON RAND
     mapaDeProduccion.crearMapa();
     var cantCreados = mapaDeProduccion.contarCantidadDePaquetes(0);
     mapaDeProduccion.llevarPaquetesADestino(movedor);
-    var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].length-1);
+    var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
     expect(cantRecibidos).toBe(cantCreados);
 })
