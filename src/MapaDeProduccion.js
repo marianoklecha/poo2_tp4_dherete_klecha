@@ -62,7 +62,7 @@ function MapaDeProduccion(){
         return valorASumar;
     }
     
-    this.llevarPaquetesADestino=function (movedor){ 
+    this.llevarPaquetesADestino=function (movedor){
         for(var j=0; j<this.cantidadCentros()-1; j++){ // Repite cantidadDeCentros veces para que todos lleguen a destino
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){ //Recorre cada una de las filas
                 for(var k = this.cantidadCentros()-1;k>0;k--){ // Moviendo paquetes de cada local o centro al siguiente
@@ -78,6 +78,7 @@ function MapaDeProduccion(){
                     if(paquetesParaMover.length != 0){
                         paqueteAPasar = paquetesParaMover.pop();
                         destinoDelPaquete = paqueteAPasar.destino;
+                        paqueteAPasar.restarUrgencia();
                         paquetesParaMover.push(paqueteAPasar);
 
                         var cambioDeLinea = this.subeBajaOContinua(i,destinoDelPaquete);
@@ -90,6 +91,7 @@ function MapaDeProduccion(){
                             if(paquetesParaMover.length != 0){
                                 paqueteAPasar = paquetesParaMover.pop();
                                 destinoDelPaquete = paqueteAPasar.destino;
+                                paqueteAPasar.restarUrgencia();
                                 paquetesParaMover.push(paqueteAPasar);
 
                                 var cambioDeLinea = this.subeBajaOContinua(i,destinoDelPaquete);
@@ -101,7 +103,6 @@ function MapaDeProduccion(){
                 tiempoActual.sumarTiempo();
             }
         }
-
     }
 
 }
