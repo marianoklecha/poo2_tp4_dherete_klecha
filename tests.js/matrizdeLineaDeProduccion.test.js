@@ -29,15 +29,7 @@ test("Mover paquetes hasta su destino CASO LINEAL",()=>{
     expect(cantCreados).toBeGreaterThanOrEqual(cantRecibidos);
 })
 
-test("Mover paquetes hasta su destino CASO NO LINEAL",()=>{
-    var mapaDeProduccion= new MapaDeProduccion();
-    var movedor = new Movedor();
 
-    mapaDeProduccion.crearMapa();
-    mapaDeProduccion.llevarPaquetesADestino(movedor);
-    var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(5);
-    expect(cantRecibidos).toBe(mapaDeProduccion.lineasDeProduccion[1].circuito[5].paquetesEnCola.length);
-})
 
 
 test("Mover paquetes hasta su destino CASO NO LINEAL SIN NUMEROS FIJOS, CON RANDOM",()=>{
@@ -48,5 +40,5 @@ test("Mover paquetes hasta su destino CASO NO LINEAL SIN NUMEROS FIJOS, CON RAND
     var cantCreados = mapaDeProduccion.contarCantidadDePaquetes(0);
     mapaDeProduccion.llevarPaquetesADestino(movedor);
     var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
-    expect(cantRecibidos).toBe(cantCreados);
+    expect(cantRecibidos).toBeGreaterThanOrEqual(cantCreados);
 })
