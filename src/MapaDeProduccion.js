@@ -31,7 +31,7 @@ function MapaDeProduccion(){
     }
 
     this.llevarPaquetesADestino=function (movedor){
-        for(var i=0; i<5; i++){
+        for(var j=0; j<5; j++){
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
                 this.lineasDeProduccion[i].recorrerCircuito(movedor);
             }
