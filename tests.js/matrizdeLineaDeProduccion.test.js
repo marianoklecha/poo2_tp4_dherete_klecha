@@ -75,3 +75,23 @@ test("Que lleguen TODOS los paquetes a destino",()=>{
     
     expect(cantidadTotal).toBe(cantRecibidos);
 })
+
+test("Que lleguen TODOS los paquetes a destino",()=>{
+    var mapaDeProduccion= new MapaDeProduccion();
+    var movedor = new Movedor();
+
+    mapaDeProduccion.crearMapa();
+    var cantidadTotal = mapaDeProduccion.contarPaquetesEnTotal();
+    while(cantidadTotal-cantRecibidos!=0){
+        mapaDeProduccion.llevarPaquetesADestino(movedor);
+        cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
+    }
+
+    for(var i=0;i<mapaDeProduccion.cantidadDeFilasDeProduccion;i++){
+        (mapaDeProduccion.lineasDeProduccion[i].circuito[5].paquetesEnCola).forEach(paquete => {
+            expect(paquete.urgencia).toBeLessThanOrEqual(6);
+        });
+    
+    }
+    
+})
