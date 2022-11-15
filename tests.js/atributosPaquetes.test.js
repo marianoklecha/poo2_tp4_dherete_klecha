@@ -10,7 +10,7 @@ test("Paquete con productos", () =>  {
     localInicial.generarPaquetes();
 
     (localInicial.paquetesEnCola).forEach(paquete => {
-        expect(paquete.productos.length).toBe(1)
+        expect(paquete.productos.length).toBe(2)
     });
 
 
