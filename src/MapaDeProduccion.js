@@ -32,11 +32,20 @@ function MapaDeProduccion(){
 
     this.llevarPaquetesADestino=function (movedor){
         for(var j=0; j<this.cantidadCentros()-1; j++){
+            
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
-                this.lineasDeProduccion[i].recorrerCircuito(movedor);
+
+                for(var k = this.lineasDeProduccion[i].circuito.length-1;k>0;k--){ 
+                    if(this.lineasDeProduccion[i].circuito[k-1].soyCentro()){
+                        this.lineasDeProduccion[i].circuito[k-1].procesarPaquetesEnEspera();
+                    }
+                    movedor.moverPaquetes(this.circuito[k-1],this.circuito[k]);
+               }
+
             }
         }
     }
+
 }
 
 module.exports=MapaDeProduccion;
