@@ -7,7 +7,7 @@ const Destino = require("../src/Destino");
 const LineaDeProduccion=require("../src/LineaDeProduccion");
 
 function MapaDeProduccion(){
-    this.cantidadDeFilasDeProduccion = Math.random() * (10 - 2) + 2;;
+    this.cantidadDeFilasDeProduccion = Math.random() * (10 - 2) + 2;
     this.lineasDeProduccion= new Array();
     
     this.contarCantidadDePaquetes = function(indiceDeArr){
@@ -22,8 +22,8 @@ function MapaDeProduccion(){
         
         for (var i=0;i< this.cantidadDeFilasDeProduccion;i++){
             this.lineasDeProduccion.push(new LineaDeProduccion(new Local(),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino()));
-            var indiceDestino=this.cantidadDeFilasDeProduccion = Math.random() * (this.cantidadDeFilasDeProduccion - 0) + 0;;
-            this.lineasDeProduccion[i].circuito[0].generarPaquetes(this.cantidadCentros(),);
+
+            this.lineasDeProduccion[i].circuito[0].generarPaquetes(this.cantidadCentros(),this.cantidadDeFilasDeProduccion);
         }
 
     }

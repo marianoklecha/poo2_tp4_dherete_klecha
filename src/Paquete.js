@@ -6,7 +6,7 @@ function Paquete(largoLineaDeProduccion,destino){
     var randomUrgencia = Math.floor(Math.random() * (3 - 0) + 0);
     var tiposDeUrgencia = [1,1.5,2];
     this.urgencia = Math.floor((tiposDeUrgencia[randomUrgencia])*largoLineaDeProduccion);
-    
+
     this.destino=destino;
 
 }
