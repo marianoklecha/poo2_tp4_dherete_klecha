@@ -21,5 +21,5 @@ test("Mover paquetes hasta su  destino",()=>{
     mapaDeProduccion.crearMapa();
     mapaDeProduccion.llevarPaquetesADestino();
 
-    expect(mapaDeProduccion.cantidadDePaquetesCreados).toBeLessThanOrEqual(mapaDeProduccion.cantidadDePaquetesRecibidos);
+    expect(mapaDeProduccion.cantidadDePaquetesCreados).toBe(mapaDeProduccion.cantidadDePaquetesRecibidos);
 })
