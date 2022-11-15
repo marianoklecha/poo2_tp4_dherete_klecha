@@ -20,7 +20,7 @@ function MapaDeProduccion(){
     }
 
     this.crearMapa=function(){
-        for (var i=0;i<4+ 1;i++){
+        for (var i=0;i< this.cantidadDeFilasDeProduccion;i++){
             this.lineasDeProduccion.push(new LineaDeProduccion(new Local(),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino()));
             this.lineasDeProduccion[i].circuito[0].generarPaquetes();
         }
@@ -31,7 +31,7 @@ function MapaDeProduccion(){
     }
 
     this.llevarPaquetesADestino=function (movedor){
-        for(var j=0; j<5; j++){
+        for(var j=0; j<this.cantidadCentros()-1; j++){
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
                 this.lineasDeProduccion[i].recorrerCircuito(movedor);
             }
