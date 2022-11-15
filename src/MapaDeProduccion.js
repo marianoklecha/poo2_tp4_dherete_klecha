@@ -35,15 +35,39 @@ function MapaDeProduccion(){
 
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
 
-                for(var k = this.lineasDeProduccion[i].circuito.length-1;k>0;k--){ 
+                for(var k = this.lineasDeProduccion[i].circuito.length-1;k>0;k--){ //Recorriendo paquetes
+                    
                     if(this.lineasDeProduccion[i].circuito[k-1].soyCentro()){
                         this.lineasDeProduccion[i].circuito[k-1].procesarPaquetesEnEspera();
+                        paqueteAPasar = this.lineasDeProduccion[i].circuito[k-1].paquetesProcesados.pop();
+                        destinoDelPaquete = paqueteAPasar.destino;
+                        this.lineasDeProduccion[i].circuito[k-1].paquetesProcesados.push(paqueteAPasar);
+
+                    } else{
+                        this.lineasDeProduccion[i].circuito[k-1].procesarPaquetesEnEspera();
+                        paqueteAPasar = this.lineasDeProduccion[i].circuito[k-1].paquetesEnCola.pop();
+                        destinoDelPaquete = paqueteAPasar.destino;
+                        this.lineasDeProduccion[i].circuito[k-1].paquetesEnCola.push(paqueteAPasar);
                     }
-                    movedor.moverPaquetes(this.lineasDeProduccion[i].circuito[k-1],this.lineasDeProduccion[i].circuito[k]);
+
+                    if(i>destinoDelPaquete){
+                        this.lineasDeProduccion[i].circuito[k-1].pasarPaqueteA(this.lineasDeProduccion[i-1].circuito[k]);
+                    } else if(i<destinoDelPaquete){
+                        this.lineasDeProduccion[i].circuito[k-1].pasarPaqueteA(this.lineasDeProduccion[i+1].circuito[k]);
+                    } else if(i==destinoDelPaquete){
+                        this.lineasDeProduccion[i].circuito[k-1].pasarPaqueteA(this.lineasDeProduccion[i].circuito[k]);
+                    } 
                }
 
             }
         }
+    }
+
+    this.subirOBajarPaquetes = function(fila,arrayDePaquetes){
+        while(arrayDePaquetes.length != 0){
+            origen.pasarPaqueteA(destino);
+        }
+        tiempoActual.sumarTiempo();
     }
 
 }
