@@ -36,7 +36,17 @@ test("Mover paquetes hasta su destino CASO NO LINEAL",()=>{
     mapaDeProduccion.crearMapa();
     mapaDeProduccion.llevarPaquetesADestino(movedor);
     var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(5);
-    console.log(cantRecibidos);
-    console.log(mapaDeProduccion.lineasDeProduccion[1].circuito[5].paquetesEnCola.length);
     expect(cantRecibidos).toBe(mapaDeProduccion.lineasDeProduccion[1].circuito[5].paquetesEnCola.length);
+})
+
+
+test("Mover paquetes hasta su destino CASO NO LINEAL SIN NUMEROS FIJOS, CON RANDOM",()=>{
+    var mapaDeProduccion= new MapaDeProduccion();
+    var movedor = new Movedor();
+
+    mapaDeProduccion.crearMapa();
+    var cantCreados = mapaDeProduccion.contarCantidadDePaquetes(0);
+    mapaDeProduccion.llevarPaquetesADestino(movedor);
+    var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].length-1);
+    expect(cantRecibidos).toBe(cantCreados);
 })
