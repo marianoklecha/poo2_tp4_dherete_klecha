@@ -22,7 +22,7 @@ function MapaDeProduccion(){
     this.crearMapa=function(){
         for (var i=0;i< this.cantidadDeFilasDeProduccion;i++){
             this.lineasDeProduccion.push(new LineaDeProduccion(new Local(),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino()));
-            this.lineasDeProduccion[i].circuito[0].generarPaquetes();
+            this.lineasDeProduccion[i].circuito[0].generarPaquetes(6,1);
         }
 
     }
@@ -36,7 +36,7 @@ function MapaDeProduccion(){
             for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
 
                 for(var k = this.lineasDeProduccion[i].circuito.length-1;k>0;k--){ //Recorriendo paquetes
-                    
+
                     if(this.lineasDeProduccion[i].circuito[k-1].soyCentro()){
                         this.lineasDeProduccion[i].circuito[k-1].procesarPaquetesEnEspera();
                         paqueteAPasar = this.lineasDeProduccion[i].circuito[k-1].paquetesProcesados.pop();

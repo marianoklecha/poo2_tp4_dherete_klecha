@@ -3,10 +3,10 @@ const Paquete = require("./Paquete");
 function Local(){
     this.paquetesEnCola = new Array();
 
-    this.generarPaquetes = function(largoLineaDeProduccion){
+    this.generarPaquetes = function(largoLineaDeProduccion,destino){
         cantidadPaquetes = Math.random() * (6 - 1) + 1;
         for(var i = 0; i<cantidadPaquetes; i++){
-            this.paquetesEnCola.push(new Paquete(largoLineaDeProduccion));
+            this.paquetesEnCola.push(new Paquete(largoLineaDeProduccion,destino));
         }
         this.ordenarPaquetesSegunUrgencia();
     }
