@@ -14,10 +14,20 @@ function MapaDeProduccion(){
     this.cantidadDeFilasDeProduccion =Math.floor( Math.random() * (this.cantidadCentros()+1 - 2) + 2);
     this.lineasDeProduccion= new Array();
     
+
+    
     this.contarCantidadDePaquetes = function(indiceDeArr){
         var cont = 0;
         for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
             cont+= this.lineasDeProduccion[i].circuito[indiceDeArr].paquetesEnCola.length;
+        }
+        return cont;
+    }
+
+    this.contarPaquetesEnTotal=function(){
+        var cont = 0;
+        for(var i=0; i<this.cantidadCentros()-1;i++){
+            cont+=this.contarCantidadDePaquetes(i);
         }
         return cont;
     }
