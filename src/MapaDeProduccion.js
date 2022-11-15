@@ -50,114 +50,58 @@ function MapaDeProduccion(){
 
     }
 
-
+    this.subeBajaOContinua = function(lineaActual,destinoPaquete){
+        var valorASumar; 
+        if(lineaActual>destinoPaquete){
+            valorASumar = -1; //Sube diagonalmente
+        } else if(lineaActual<destinoPaquete){
+            valorASumar = 1; //Baja diagonalmente
+        } else if(lineaActual==destinoPaquete){
+            valorASumar = 0; //Sigue en la misma
+        }
+        return valorASumar;
+    }
+    
     this.llevarPaquetesADestino=function (movedor){ 
-        
-
-        for(var j=0; j<this.cantidadCentros()-1; j++){
-
-            for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){
-
-                for(var k = this.cantidadCentros()-1;k>0;k--){ //Recorriendo paquetes
+        for(var j=0; j<this.cantidadCentros()-1; j++){ // Repite cantidadDeCentros veces para que todos lleguen a destino
+            for(var i = 0; i<this.cantidadDeFilasDeProduccion;i++){ //Recorre cada una de las filas
+                for(var k = this.cantidadCentros()-1;k>0;k--){ // Moviendo paquetes de cada local o centro al siguiente
                     origen = this.lineasDeProduccion[i].circuito[k-1];
 
                     if(origen.soyCentro()){
                         origen.procesarPaquetesEnEspera();
+                        paquetesParaMover = origen.paquetesProcesados;
+                    }else{
+                        paquetesParaMover = origen.paquetesEnCola;
+                    }
 
-                        if(origen.paquetesProcesados.length != 0){
-                            paqueteAPasar = origen.paquetesProcesados.pop();
-                            destinoDelPaquete = paqueteAPasar.destino;
-                            paqueteAPasar.restarUrgencia();
-                            origen.paquetesProcesados.push(paqueteAPasar);
+                    if(paquetesParaMover.length != 0){
+                        paqueteAPasar = paquetesParaMover.pop();
+                        destinoDelPaquete = paqueteAPasar.destino;
+                        paquetesParaMover.push(paqueteAPasar);
 
-                            if(i>destinoDelPaquete){
-                                destino = this.lineasDeProduccion[i-1].circuito[k];
-                            } else if(i<destinoDelPaquete){
-                                destino = this.lineasDeProduccion[i+1].circuito[k];
-                            } else if(i==destinoDelPaquete){
-                                destino = this.lineasDeProduccion[i].circuito[k];
-                            } 
+                        var cambioDeLinea = this.subeBajaOContinua(i,destinoDelPaquete);
+                        destino = this.lineasDeProduccion[i+cambioDeLinea].circuito[k];
 
-                            while(origen.paquetesProcesados.length != 0 && destino.puedeRecibirPaquetes()){
+                        while(paquetesParaMover.length != 0 && destino.puedeRecibirPaquetes()){
 
-                                if(i>destinoDelPaquete){
-                                    origen.pasarPaqueteA(this.lineasDeProduccion[i-1].circuito[k]);
-                                } else if(i<destinoDelPaquete){
-                                    origen.pasarPaqueteA(this.lineasDeProduccion[i+1].circuito[k]);
-                                } else if(i==destinoDelPaquete){
-                                    origen.pasarPaqueteA(this.lineasDeProduccion[i].circuito[k]);
-                                }
+                            origen.pasarPaqueteA(destino);
 
-                                if(origen.paquetesProcesados.length != 0){
-                                    paqueteAPasar = origen.paquetesProcesados.pop();
-                                    destinoDelPaquete = paqueteAPasar.destino;
-                                    paqueteAPasar.restarUrgencia();
-                                    origen.paquetesProcesados.push(paqueteAPasar);
-
-                                    if(i>destinoDelPaquete){
-                                        destino = this.lineasDeProduccion[i-1].circuito[k];
-                                    } else if(i<destinoDelPaquete){
-                                        destino = this.lineasDeProduccion[i+1].circuito[k];
-                                    } else if(i==destinoDelPaquete){
-                                        destino = this.lineasDeProduccion[i].circuito[k];
-                                    } 
-                                }
-                            }
-                        }
-                        
-                    } else{
-                        if(origen.paquetesEnCola.length != 0){
-                            paqueteAPasar = origen.paquetesEnCola.pop();
-                            destinoDelPaquete = paqueteAPasar.destino;
-                            paqueteAPasar.restarUrgencia();
-                            origen.paquetesEnCola.push(paqueteAPasar);
-
-                            if(i>destinoDelPaquete){
-                                destino = this.lineasDeProduccion[i-1].circuito[k];
-                            } else if(i<destinoDelPaquete){
-                                destino = this.lineasDeProduccion[i+1].circuito[k];
-                            } else if(i==destinoDelPaquete){
-                                destino = this.lineasDeProduccion[i].circuito[k];
-                            } 
-
-                            while(origen.paquetesEnCola.length!=0 &&  destino.puedeRecibirPaquetes()){
-                                paqueteAPasar = origen.paquetesEnCola.pop();
+                            if(paquetesParaMover.length != 0){
+                                paqueteAPasar = paquetesParaMover.pop();
                                 destinoDelPaquete = paqueteAPasar.destino;
-                                paqueteAPasar.restarUrgencia();
-                                origen.paquetesEnCola.push(paqueteAPasar);
+                                paquetesParaMover.push(paqueteAPasar);
 
-                                if(i>destinoDelPaquete){
-                                    origen.pasarPaqueteA(this.lineasDeProduccion[i-1].circuito[k]);
-                                } else if(i<destinoDelPaquete){
-                                    origen.pasarPaqueteA(this.lineasDeProduccion[i+1].circuito[k]);
-                                } else if(i==destinoDelPaquete){
-                                    origen.pasarPaqueteA(this.lineasDeProduccion[i].circuito[k]);
-                                }
-                                if(origen.paquetesEnCola.length != 0){
-                                    paqueteAPasar = origen.paquetesEnCola.pop();
-                                    destinoDelPaquete = paqueteAPasar.destino;
-                                    paqueteAPasar.restarUrgencia();
-                                    origen.paquetesEnCola.push(paqueteAPasar);
-
-                                    if(i>destinoDelPaquete){
-                                        destino = this.lineasDeProduccion[i-1].circuito[k];
-                                    } else if(i<destinoDelPaquete){
-                                        destino = this.lineasDeProduccion[i+1].circuito[k];
-                                    } else if(i==destinoDelPaquete){
-                                        destino = this.lineasDeProduccion[i].circuito[k];
-                                    } 
-                                }
+                                var cambioDeLinea = this.subeBajaOContinua(i,destinoDelPaquete);
+                                destino = this.lineasDeProduccion[i+cambioDeLinea].circuito[k];
                             }
                         }
                     }
-
-                    
-               }
-            tiempoActual.sumarTiempo();
-            
-
+                }
+                tiempoActual.sumarTiempo();
             }
         }
+
     }
 
 }
