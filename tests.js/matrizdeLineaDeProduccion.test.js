@@ -91,7 +91,7 @@ test("Que lleguen TODOS los paquetes a destino con tiempo restando urgencia",()=
 
     for(var i=0;i<mapaDeProduccion.cantidadDeFilasDeProduccion;i++){
         (mapaDeProduccion.lineasDeProduccion[i].circuito[5].paquetesEnCola).forEach(paquete => {
-            expect(paquete.urgencia).toBeLessThanOrEqual(6);
+            expect(paquete.urgencia).toBeLessThanOrEqual(7);
         });
     
     }
