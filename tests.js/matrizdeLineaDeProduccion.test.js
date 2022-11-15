@@ -83,7 +83,7 @@ test("Que lleguen TODOS los paquetes a destino con tiempo restando urgencia",()=
     mapaDeProduccion.crearMapa();
     var cantidadTotal = mapaDeProduccion.contarPaquetesEnTotal();
     cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
-}
+
     while(cantidadTotal-cantRecibidos!=0){
         mapaDeProduccion.llevarPaquetesADestino(movedor);
         cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
