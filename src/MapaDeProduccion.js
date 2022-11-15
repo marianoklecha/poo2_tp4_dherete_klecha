@@ -32,7 +32,7 @@ function MapaDeProduccion(){
 
     this.contarPaquetesEnTotal=function(){
         var cont = 0;
-        for(var i=0; i<this.cantidadCentros()-1;i++){
+        for(var i=0; i<this.cantidadCentros();i++){
             cont+=this.contarCantidadDePaquetes(i);
         }
         return cont;
