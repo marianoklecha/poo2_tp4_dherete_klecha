@@ -106,7 +106,7 @@ test("Unir paquetes con mismo destino",()=>{
 
     mapaDeProduccion.crearMapa();
    
-    var centroDistribucion= new centroDistribucion();
+    var centroDistribucion= new CentroDistribucion();
     centroDistribucion.paquetesProcesados.push(new Paquete(mapaDeProduccion.lineasDeProduccion[0].circuito.length),1);
     centroDistribucion.paquetesProcesados.push(new Paquete(mapaDeProduccion.lineasDeProduccion[0].circuito.length),1);
     expect(centroDistribucion.paquetesProcesados.length).toBe(1);
