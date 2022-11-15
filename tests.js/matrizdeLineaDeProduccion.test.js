@@ -16,7 +16,7 @@ test("Que cada paquete tenga un destino",()=>{
     expect(paquete.destino).toBeLessThanOrEqual(4);
 })
 
-test("Mover paquetes hasta su destino",()=>{
+test("Mover paquetes hasta su  destino",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
     mapaDeProduccion.crearMapa();
     mapaDeProduccion.llevarPaquetesADestino();
