@@ -2,11 +2,13 @@ const Paquete = require("./Paquete");
 
 function Local(){
     this.paquetesEnCola = new Array();
+    this.cantidadPaquetesCreados = 0;
 
     this.generarPaquetes = function(largoLineaDeProduccion,maximo){
         cantidadPaquetes = Math.random() * (6 - 1) + 1;
         for(var i = 0; i<cantidadPaquetes; i++){
-            this.paquetesEnCola.push(new Paquete(largoLineaDeProduccion,Math.floor(Math.random() * (maximo - 0) + 0)));
+            this.cantidadPaquetesCreados+=1;
+            this.paquetesEnCola.push(new Paquete(largoLineaDeProduccion,Math.floor(Math.random() * (maximo - 0) + 0),this.cantidadPaquetesCreados));
         }
         this.ordenarPaquetesSegunUrgencia();
     }

@@ -43,12 +43,19 @@ function MapaDeProduccion(){
     this.crearMapa=function(){
         
         for (var i=0;i< this.cantidadDeFilasDeProduccion;i++){
-            this.lineasDeProduccion.push(new LineaDeProduccion(new Local(),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino()));
+            this.lineasDeProduccion.push(new LineaDeProduccion(new Local(),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino(i)));
 
             this.lineasDeProduccion[i].circuito[0].generarPaquetes(this.cantidadCentros(),this.cantidadDeFilasDeProduccion);
         }
 
     }
+
+    this.despacharPaquetes() = function(){
+        for (var i=0;i< this.cantidadDeFilasDeProduccion;i++){
+            this.lineasDeProduccion[i].circuito[0].generarPaquetes(this.cantidadCentros(),this.cantidadDeFilasDeProduccion);
+        }
+    }
+    
 
     this.subeBajaOContinua = function(lineaActual,destinoPaquete){
         var valorASumar; 
