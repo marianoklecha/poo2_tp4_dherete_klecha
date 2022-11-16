@@ -38,6 +38,7 @@ function CentroDistribucion(){
                     paqueteUnificado.destino=(this.paquetesProcesados[i].destino);
                     paqueteUnificado.urgencia=this.paquetesProcesados[i+1].urgencia;
                     paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
+                    paqueteUnificado.idPaquete = this.paquetesProcesados[i].idPaquete + " " + this.paquetesProcesados[i+1].idPaquete;
                     
                     this.paquetesProcesados.splice(i,2,paqueteUnificado);
                     i=-1;

@@ -6,6 +6,7 @@ const CentroDistribucion = require("../src/CentroDistribucion");
 const Destino = require("../src/Destino");
 
 test("Que lleguen paquetes y saber si llegó demorado",()=>{
+    console.log("Esta en este test");
     var mapaDeProduccion= new MapaDeProduccion();
     mapaDeProduccion.crearMapa();
     var cont = 1;
