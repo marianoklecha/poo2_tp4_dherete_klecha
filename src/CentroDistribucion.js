@@ -31,7 +31,7 @@ function CentroDistribucion(){
         if(this.paquetesProcesados.length>=2){
             this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
 
-            for(var i=0;i<this.paquetesProcesados.length-1;i++){
+            for(var i=0;i<this.paquetesProcesados.length;i++){
                 var paqueteUnificado=new Paquete();
                 if(this.paquetesProcesados[i].destino==this.paquetesProcesados[i+1].destino){
                     paqueteUnificado.destino=(this.paquetesProcesados[i].destino);
