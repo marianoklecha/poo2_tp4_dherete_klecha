@@ -39,8 +39,7 @@ function CentroDistribucion(){
                     paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
                     this.paquetesProcesados.splice(i,2);
                     this.paquetesProcesados.push(paqueteUnificado);
-                    i=0;
-                    
+                    i=i-1;
                 }
                 // if (this.paquetesProcesados[i].destino==this.paquetesProcesados[i+1].destino){
                 //     this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
