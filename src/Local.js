@@ -1,8 +1,9 @@
 const Paquete = require("./Paquete");
 
-function Local(){
+function Local(idDelLocal){
     this.paquetesEnCola = new Array();
     this.cantidadPaquetesCreados = 0;
+    this.idLocal = idDelLocal.toString();
 
     this.generarPaquetes = function(largoLineaDeProduccion,maximo){
         cantidadPaquetes = Math.random() * (6 - 1) + 1;

@@ -15,7 +15,7 @@ function MapaDeProduccion(){
 
     this.cantidadDeFilasDeProduccion =Math.floor( Math.random() * (this.cantidadCentros()+1 - 2) + 2);
     this.lineasDeProduccion= new Array();
-    
+    this.idLocal = 65;
 
     
     this.contarCantidadDePaquetes = function(indiceDeArr){
@@ -43,8 +43,8 @@ function MapaDeProduccion(){
     this.crearMapa=function(){
         
         for (var i=0;i< this.cantidadDeFilasDeProduccion;i++){
-            this.lineasDeProduccion.push(new LineaDeProduccion(new Local(),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino(i)));
-
+            this.lineasDeProduccion.push(new LineaDeProduccion(new Local(this.idLocal),new CentroCalidad(), new CentroDistribucion(),new CentroFacturacion(), new CentroCalidad(), new Destino(i)));
+            this.idLocal+=1;
             this.lineasDeProduccion[i].circuito[0].generarPaquetes(this.cantidadCentros(),this.cantidadDeFilasDeProduccion);
         }
 
