@@ -31,7 +31,7 @@ function CentroDistribucion(){
         if(this.paquetesProcesados.length>=2){
         this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
         for(var i=this.paquetesProcesados.length-1;i>=1;i--){
-            if(this.paquetesProcesados[i].urgencia>this.paquetesProcesados[i-1].urgencia && this.paquetesProcesados[i].destino==this.paquetesProcesados[i-1].destino){
+            if(this.paquetesProcesados[i].urgencia>=this.paquetesProcesados[i-1].urgencia && this.paquetesProcesados[i].destino==this.paquetesProcesados[i-1].destino){
                 
                 var paqueteUnificado=new Paquete();
                 this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
