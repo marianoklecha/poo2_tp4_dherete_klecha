@@ -28,8 +28,8 @@ function CentroDistribucion(){
     
 
     this.unificar=function(){
-        if(this.paquetesProcesados.length>=2){
-        
+        if(this.paquetesProcesados.lenght>=2){
+        console.log("ENTRAAAAAAAAAAAAA")
         this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
         for(var i=this.paquetesProcesados.length-1;i>=1;i--){
             if(this.paquetesProcesados[i].urgencia>this.paquetesProcesados[i-1].urgencia && this.paquetesProcesados[i].destino==this.paquetesProcesados[i-1].destino){
