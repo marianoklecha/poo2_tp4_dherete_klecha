@@ -1,5 +1,6 @@
 function Destino(){
     this.paquetesEnCola = new Array();
+    this.cantidadPaquetesDemorados;
 
     this.recibirPaquete = function(nuevoPaquete){
         this.paquetesEnCola.push(nuevoPaquete);
@@ -12,6 +13,8 @@ function Destino(){
     this.puedeRecibirPaquetes = function(){
         return true;
     }
+
+    
 }
 
 module.exports = Destino;
