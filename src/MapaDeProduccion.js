@@ -50,7 +50,7 @@ function MapaDeProduccion(){
 
     }
 
-    this.despacharPaquetes() = function(){
+    this.despacharPaquetes = function(){
         for (var i=0;i< this.cantidadDeFilasDeProduccion;i++){
             this.lineasDeProduccion[i].circuito[0].generarPaquetes(this.cantidadCentros(),this.cantidadDeFilasDeProduccion);
         }
