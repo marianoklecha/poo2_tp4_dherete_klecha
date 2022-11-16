@@ -24,14 +24,15 @@ function CentroDistribucion(){
         }
         this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
         this.unificar();
+        this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
     }
     
 
     this.unificar=function(){
-        if(this.paquetesProcesados.length>=2){
+        if(this.paquetesProcesados.length>1){
             this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
-            var i;
-            for(i=0;i<this.paquetesProcesados.length-1;i++){
+            
+            for(var i=0;i<this.paquetesProcesados.length-1;i++){
                 var paqueteUnificado=new Paquete();
                 if(this.paquetesProcesados[i].destino==this.paquetesProcesados[i+1].destino){
                     paqueteUnificado.destino=(this.paquetesProcesados[i].destino);
@@ -39,17 +40,8 @@ function CentroDistribucion(){
                     paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
                     
                     this.paquetesProcesados.splice(i,2,paqueteUnificado);
-                    //this.paquetesProcesados.push(paqueteUnificado);
-                    i=0;
+                    i=-1;
                 }
-               
-                // if (this.paquetesProcesados[i].destino==this.paquetesProcesados[i+1].destino){
-                //     this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
-                //     this.paqueteUnificado.urgencia=this.paquetesProcesados[i].urgencia;
-                //     this.paquetesProcesados.splice(i,2);
-                //     this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
-                //     this.paquetesProcesados.push(paqueteUnificado);
-                // }
                 this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
             }
             this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);

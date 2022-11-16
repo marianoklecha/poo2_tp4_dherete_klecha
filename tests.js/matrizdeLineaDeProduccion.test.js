@@ -4,7 +4,6 @@ const Movedor = require("../src/Movedor");
 const Paquete = require("../src/Paquete");
 const CentroDistribucion = require("../src/CentroDistribucion");
 
-
 test("Que la cantidad de lineas de produccion sean mayor o igual a la cantidad de locales",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
     mapaDeProduccion.crearMapa();
@@ -30,9 +29,6 @@ test("Mover paquetes hasta su destino CASO LINEAL",()=>{
     expect(cantCreados).toBeGreaterThanOrEqual(cantRecibidos);
 })
 
-
-
-
 test("Mover paquetes hasta su destino CASO NO LINEAL SIN NUMEROS FIJOS, CON RANDOM",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
     var movedor = new Movedor();
@@ -43,13 +39,6 @@ test("Mover paquetes hasta su destino CASO NO LINEAL SIN NUMEROS FIJOS, CON RAND
     var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
     expect(cantRecibidos).toBeLessThanOrEqual(cantCreados);
 })
-
-
-
-
-
-
-
 
 test("Unir paquetes con mismo destino",()=>{
     var centroDistribucion= new CentroDistribucion();
@@ -65,7 +54,7 @@ test("Unir paquetes con mismo destino",()=>{
     centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
 
     centroDistribucion.procesarPaquetesEnEspera();
-    expect(centroDistribucion.paquetesProcesados.length).toBe(2);
+    expect(centroDistribucion.paquetesProcesados.length).toBe(1);
     
     
 })

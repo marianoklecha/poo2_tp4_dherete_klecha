@@ -190,7 +190,7 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: Should run test with command npm run testpush\" && exit 1",
+    "test": "jest",
     "testpush": "git add . && git commit -m 'test' && git push && jest"
   },
   "repository": {
