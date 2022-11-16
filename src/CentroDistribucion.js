@@ -42,6 +42,16 @@ function CentroDistribucion(){
 
                 this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
             }
+            if (this.paquetesProcesados[i].destino==this.paquetesProcesados[i-1].destino){
+                var paqueteUnificado=new Paquete();
+                this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
+                this.paqueteUnificado.urgencia=this.paquetesProcesados[i].urgencia;
+                this.paquetesProcesados.splice((i-1),2);
+                this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i-1].productos);
+                this.paquetesProcesados.pop(paqueteUnificado);
+
+                this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
+            }
         }
         this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
     }
