@@ -9,7 +9,7 @@ function Local(idDelLocal){
         cantidadPaquetes = Math.random() * (6 - 1) + 1;
         for(var i = 0; i<cantidadPaquetes; i++){
             this.cantidadPaquetesCreados =this.cantidadPaquetesCreados + 1;
-            this.paquetesEnCola.push(new Paquete(largoLineaDeProduccion,Math.floor(Math.random() * (maximo - 0) + 0),this.cantidadPaquetesCreados));
+            this.paquetesEnCola.push(new Paquete(largoLineaDeProduccion,Math.floor(Math.random() * (maximo - 0) + 0),this.cantidadPaquetesCreados+"-"+this.idLocal));
         }
         this.ordenarPaquetesSegunUrgencia();
     }
