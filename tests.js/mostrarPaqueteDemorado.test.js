@@ -6,7 +6,6 @@ const CentroDistribucion = require("../src/CentroDistribucion");
 const Destino = require("../src/Destino");
 
 test("Que lleguen paquetes y saber si llegó demorado",()=>{
-    console.log("Esta en este test");
     var mapaDeProduccion= new MapaDeProduccion();
     mapaDeProduccion.crearMapa();
     var cont = 1;
@@ -17,7 +16,7 @@ test("Que lleguen paquetes y saber si llegó demorado",()=>{
         for (let index = 0; index < 5; index++) {
             cont+=mapaDeProduccion.contarCantidadDePaquetes(index);
         }
-        if(cantidadDeEnviosDePaquetes<4){
+        if(cantidadDeEnviosDePaquetes < mapaDeProduccion.cantidadDeFilasDeProduccion){
             mapaDeProduccion.despacharPaquetes();
             cantidadDeEnviosDePaquetes+=1;
         }
