@@ -12,7 +12,7 @@ function CentroDistribucion(){
 
     this.capacidadMaximaEnEspera=Math.floor(Math.random() * (30 - 10) + 10);
 
-    Centro.prototype.procesarPaquetesEnEspera=function(){
+    this.procesarPaquetesEnEspera=function(){
         var cont=0;
         while(cont<this.maximoAProcesar && this.paquetesEnCola.length!=0){
             if(this.paquetesEnCola.length!=0){
