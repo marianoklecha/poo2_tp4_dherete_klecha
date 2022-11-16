@@ -45,19 +45,6 @@ test("Mover paquetes hasta su destino CASO NO LINEAL SIN NUMEROS FIJOS, CON RAND
 })
 
 
-test("Que lleguen TODOS los paquetes a destino",()=>{
-    var mapaDeProduccion= new MapaDeProduccion();
-    var movedor = new Movedor();
-
-    mapaDeProduccion.crearMapa();
-
-    var cantCreados = mapaDeProduccion.contarCantidadDePaquetes(0);
-
-    mapaDeProduccion.llevarPaquetesADestino(movedor);
-
-    var cantidadTotal = mapaDeProduccion.contarPaquetesEnTotal();
-    expect(cantCreados).toBe(cantidadTotal);
-})
 
 test("Que lleguen TODOS los paquetes a destino",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
@@ -104,6 +91,7 @@ test("Unir paquetes con mismo destino",()=>{
     var centroDistribucion= new CentroDistribucion();
     centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
     centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
+
     centroDistribucion.procesarPaquetesEnEspera();
     expect(centroDistribucion.paquetesProcesados.length).toBe(1);
     

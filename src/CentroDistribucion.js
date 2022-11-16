@@ -30,22 +30,23 @@ function CentroDistribucion(){
     this.unificar=function(){
         if(this.paquetesProcesados.length>=2){
             this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
-            for(var i=0;i>this.paquetesProcesados.length-1;i--){
+            for(var i=0;i<this.paquetesProcesados.length-1;i++){
                 var paqueteUnificado=new Paquete();
-                if(this.paquetesProcesados[i].urgencia>=this.paquetesProcesados[i+1].urgencia && this.paquetesProcesados[i].destino==this.paquetesProcesados[i+1].destino){
-                    this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
-                    this.paqueteUnificado.urgencia=this.paquetesProcesados[i+1].urgencia;
+                if(this.paquetesProcesados[i].destino==this.paquetesProcesados[i+1].destino){
+                    paqueteUnificado.destino=(this.paquetesProcesados[i].destino);
+                    paqueteUnificado.urgencia=this.paquetesProcesados[i+1].urgencia;
+                    paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
                     this.paquetesProcesados.splice(i,2);
-                    this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
-                    this.paquetesProcesados.pop(paqueteUnificado);
+                    this.paquetesProcesados.push(paqueteUnificado);
+                    
                 }
-                if (this.paquetesProcesados[i].destino==this.paquetesProcesados[i-1].destino){
-                    this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
-                    this.paqueteUnificado.urgencia=this.paquetesProcesados[i].urgencia;
-                    this.paquetesProcesados.splice(i,2);
-                    this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
-                    this.paquetesProcesados.pop(paqueteUnificado);
-                }
+                // if (this.paquetesProcesados[i].destino==this.paquetesProcesados[i+1].destino){
+                //     this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
+                //     this.paqueteUnificado.urgencia=this.paquetesProcesados[i].urgencia;
+                //     this.paquetesProcesados.splice(i,2);
+                //     this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
+                //     this.paquetesProcesados.push(paqueteUnificado);
+                // }
             }
             this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
             this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
