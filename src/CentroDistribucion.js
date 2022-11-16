@@ -35,14 +35,14 @@ function CentroDistribucion(){
             if(this.paquetesProcesados[i].urgencia>=this.paquetesProcesados[i-1].urgencia && this.paquetesProcesados[i].destino==this.paquetesProcesados[i-1].destino){
                 this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
                 this.paqueteUnificado.urgencia=this.paquetesProcesados[i-1].urgencia;
-                this.paquetesProcesados.splice((i-1),2);
+                this.paquetesProcesados.splice(this.paquetesProcesados.length-1-(i-1),2);
                 this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i-1].productos);
                 this.paquetesProcesados.pop(paqueteUnificado);
             }
             if (this.paquetesProcesados[i].destino==this.paquetesProcesados[i-1].destino){
                 this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
                 this.paqueteUnificado.urgencia=this.paquetesProcesados[i].urgencia;
-                this.paquetesProcesados.splice((i-1),2);
+                this.paquetesProcesados.splice(this.paquetesProcesados.length-1-(i-1),2);
                 this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i-1].productos);
                 this.paquetesProcesados.pop(paqueteUnificado);
             }
