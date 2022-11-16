@@ -12,7 +12,7 @@ function CentroDistribucion(){
 
     this.capacidadMaximaEnEspera=Math.floor(Math.random() * (30 - 10) + 10);
 
-   this.procesarPaquetesEnEspera=function(){
+    Centro.prototype.procesarPaquetesEnEspera=function(){
         var cont=0;
         while(cont<this.maximoAProcesar && this.paquetesEnCola.length!=0){
             if(this.paquetesEnCola.length!=0){
@@ -28,8 +28,7 @@ function CentroDistribucion(){
     
 
     this.unificar=function(){
-        if(this.paquetesProcesados.lenght>=2){
-        console.log("ENTRAAAAAAAAAAAAA")
+        if(this.paquetesProcesados.length>=2){
         this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
         for(var i=this.paquetesProcesados.length-1;i>=1;i--){
             if(this.paquetesProcesados[i].urgencia>this.paquetesProcesados[i-1].urgencia && this.paquetesProcesados[i].destino==this.paquetesProcesados[i-1].destino){
