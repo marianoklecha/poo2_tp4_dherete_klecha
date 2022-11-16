@@ -37,9 +37,9 @@ function CentroDistribucion(){
                     paqueteUnificado.destino=(this.paquetesProcesados[i].destino);
                     paqueteUnificado.urgencia=this.paquetesProcesados[i+1].urgencia;
                     paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
-                    console.log(i);
-                    this.paquetesProcesados.splice(i,2);
-                    this.paquetesProcesados.push(paqueteUnificado);
+                    
+                    this.paquetesProcesados.splice(i,2,paqueteUnificado);
+                    //this.paquetesProcesados.push(paqueteUnificado);
                     i=0;
                 }
                
@@ -55,6 +55,7 @@ function CentroDistribucion(){
             this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
         }
     }
+    
 }
 
 

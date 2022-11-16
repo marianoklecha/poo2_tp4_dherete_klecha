@@ -59,9 +59,13 @@ test("Unir paquetes con mismo destino",()=>{
     centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
     centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
     centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
+    centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
+    centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
+    centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
+    centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
 
     centroDistribucion.procesarPaquetesEnEspera();
-    expect(centroDistribucion.paquetesProcesados.length).toBe(1);
+    expect(centroDistribucion.paquetesProcesados.length).toBe(2);
     
     
 })
