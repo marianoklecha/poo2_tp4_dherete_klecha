@@ -38,7 +38,7 @@ function CentroDistribucion(){
                     paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i+1].productos);
                     this.paquetesProcesados.splice(i,2);
                     this.paquetesProcesados.push(paqueteUnificado);
-                    
+                    this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
                 }
                 // if (this.paquetesProcesados[i].destino==this.paquetesProcesados[i+1].destino){
                 //     this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
@@ -48,7 +48,7 @@ function CentroDistribucion(){
                 //     this.paquetesProcesados.push(paqueteUnificado);
                 // }
             }
-            this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
+            
             this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
     }
     }
