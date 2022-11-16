@@ -1,9 +1,4 @@
-const Local = require("../src/Local");
 const MapaDeProduccion = require("../src/MapaDeProduccion");
-const Movedor = require("../src/Movedor");
-const Paquete = require("../src/Paquete");
-const CentroDistribucion = require("../src/CentroDistribucion");
-const Destino = require("../src/Destino");
 
 test("Que lleguen paquetes y saber si llegó demorado",()=>{
     var mapaDeProduccion= new MapaDeProduccion();
