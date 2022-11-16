@@ -36,7 +36,7 @@ function CentroDistribucion(){
                 this.paqueteUnificado.destino= this.paquetesProcesados[i].destino;
                 this.paqueteUnificado.urgencia=this.paquetesProcesados[i-1].urgencia;
                 this.paquetesProcesados.splice(i-1,i);
-                this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados.[i-1].productos);
+                this.paqueteUnificado.productos=this.paquetesProcesados[i].productos.concat(this.paquetesProcesados[i-1].productos);
                 this.paquetesProcesados.pop(paqueteUnificado);
 
                 this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
