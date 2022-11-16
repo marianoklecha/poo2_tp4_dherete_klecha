@@ -46,49 +46,17 @@ test("Mover paquetes hasta su destino CASO NO LINEAL SIN NUMEROS FIJOS, CON RAND
 
 
 
-test("Que lleguen TODOS los paquetes a destino",()=>{
-    var mapaDeProduccion= new MapaDeProduccion();
-    var movedor = new Movedor();
-
-    mapaDeProduccion.crearMapa();
-
-    var cantidadTotal = mapaDeProduccion.contarPaquetesEnTotal();
-    var cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
-    while(cantidadTotal-cantRecibidos!=0){
-        mapaDeProduccion.llevarPaquetesADestino(movedor);
-        cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
-    }
-
-  
-    
-    expect(cantidadTotal).toBe(cantRecibidos);
-})
-
-test("Que lleguen TODOS los paquetes a destino con tiempo restando urgencia",()=>{
-    var mapaDeProduccion= new MapaDeProduccion();
-    var movedor = new Movedor();
-
-    mapaDeProduccion.crearMapa();
-    var cantidadTotal = mapaDeProduccion.contarPaquetesEnTotal();
-    cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
-
-    while(cantidadTotal-cantRecibidos!=0){
-        mapaDeProduccion.llevarPaquetesADestino(movedor);
-        cantRecibidos = mapaDeProduccion.contarCantidadDePaquetes(mapaDeProduccion.lineasDeProduccion[0].circuito.length-1);
-    }
 
 
-    for(var i=0;i<mapaDeProduccion.cantidadDeFilasDeProduccion;i++){
-        (mapaDeProduccion.lineasDeProduccion[i].circuito[5].paquetesEnCola).forEach(paquete => {
-            expect(paquete.urgencia).toBeLessThanOrEqual(7);
-        });
-    
-    }
-    
-})
+
+
 
 test("Unir paquetes con mismo destino",()=>{
     var centroDistribucion= new CentroDistribucion();
+    centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
+    centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
+    centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
+    centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
     centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
     centroDistribucion.paquetesEnCola.push(new Paquete(5,1));
 
