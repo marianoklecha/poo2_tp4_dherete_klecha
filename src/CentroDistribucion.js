@@ -43,7 +43,7 @@ function CentroDistribucion(){
                 this.paquetesProcesados.sort(((a, b) => b.destino - a.destino));
             }
         }
-        this.ordenarPaquetesSegunUrgencia();
+        this.ordenarPaquetesSegunUrgencia(this.paquetesProcesados);
     }
     }
 }
